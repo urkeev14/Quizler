@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#ffab40</color>
+    <color name="primaryLightColor">#ffdd71</color>
+    <color name="primaryDarkColor">#c77c02</color>
+
+    <color name="secondaryColor">#448aff</color>
+    <color name="secondaryLightColor">#83b9ff</color>
+    <color name="secondaryDarkColor">#005ecb</color>
+
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+
+    <!-- Difficulty mode colors-->
+    <color name="colorEasy">#a5d6a7</color>
+    <color name="colorMedium">#ffcc80</color>
+    <color name="colorHard">#e0827e</color>
+
+    <!-- Length mode colors-->
+    <color name="colorZen">#fce0a2</color>
+    <color name="colorExam">#c7ede6</color>
+    <color name="colorMarathon">#E0827E</color>
+
+    <!-- Category mode colors-->
+    <color name="colorGeografija">#A5D6A7</color>
+    <color name="colorIstorija">#D4AF37</color>
+    <color name="colorFilm">#E0827E</color>
+    <color name="colorMuzika">#FFF59D</color>
+    <color name="colorOpstaInformisanost">#7EB7D9</color>
+    <color name="colorSport">#DD9DFF</color>
+
+    <color name="colorBackground">#f1ebe3</color>
+
+    <color name="green">#4bb543</color>
+    <color name="red">#b00020</color>
+
+    <color name="colorClock">#E0827E</color>
 </resources>
