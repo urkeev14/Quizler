@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Quizler" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
@@ -11,8 +12,15 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
 
+        <!-- Background color -->
+        <item name="backgroundColor">@color/colorBackground</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Font -->
+        <item name="fontFamily">@font/gloria_hallelujah</item>
+        <item name="android:fontFamily">@font/gloria_hallelujah</item>
 
         <!-- Customize your theme here. -->
     </style>
