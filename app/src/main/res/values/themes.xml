@@ -12,6 +12,10 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
 
+        <!-- Background default drawable -->
+        <item name="background">@drawable/default_backgorund_pattern</item>
+        <item name="android:background">@drawable/default_backgorund_pattern</item>
+
         <!-- Background color -->
         <item name="backgroundColor">@color/colorBackground</item>
 
