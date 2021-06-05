@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.quizler.databinding.SplashFragmentBinding
 
 class SplashFragment : Fragment() {
@@ -31,6 +33,10 @@ class SplashFragment : Fragment() {
     private fun animateLogo() {
         ObjectAnimator.ofFloat(binding.ivQuizlerLogo, "alpha", 1f).also {
             it.duration = 3000
+            it.doOnEnd {
+                val direction = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+                findNavController().navigate(direction)
+            }
         }.start()
     }
 }
