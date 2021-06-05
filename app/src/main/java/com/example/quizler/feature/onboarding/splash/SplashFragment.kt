@@ -30,7 +30,6 @@ class SplashFragment : Fragment() {
 
     private fun animateLogo() {
         ObjectAnimator.ofFloat(binding.ivQuizlerLogo, "alpha", 1f).also {
-            it.repeatCount = 1
             it.duration = 3000
         }.start()
     }
