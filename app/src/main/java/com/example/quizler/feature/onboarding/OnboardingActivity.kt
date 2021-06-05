@@ -2,11 +2,15 @@ package com.example.quizler.feature.onboarding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.quizler.R
+import com.example.quizler.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityOnboardingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
