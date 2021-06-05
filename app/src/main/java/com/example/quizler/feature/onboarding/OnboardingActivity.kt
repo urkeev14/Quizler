@@ -1,7 +1,7 @@
 package com.example.quizler.feature.onboarding
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.quizler.R
 
 class OnboardingActivity : AppCompatActivity() {
