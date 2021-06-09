@@ -12,10 +12,6 @@
         <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
 
-        <!-- Background default drawable -->
-        <item name="background">@drawable/default_backgorund_pattern</item>
-        <item name="android:background">@drawable/default_backgorund_pattern</item>
-
         <!-- Background color -->
         <item name="backgroundColor">@color/colorBackground</item>
 
@@ -27,5 +23,18 @@
         <item name="android:fontFamily">@font/gloria_hallelujah</item>
 
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Widget.Quizler.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginHorizontal" tools:targetApi="o">@dimen/normal_100</item>
+        <item name="android:paddingBottom">@dimen/small_100</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+        <item name="hintTextAppearance">@style/TextAppearance.Quizler.HintText</item>
+    </style>
+
+    <!-- Hint text style-->
+    <style name="TextAppearance.Quizler.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/primaryDarkColor</item>
     </style>
 </resources>

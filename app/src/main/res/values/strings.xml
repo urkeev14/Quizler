@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Quizler</string>
+    <string name="username">username</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="go_to_login">Go to Login</string>
 </resources>

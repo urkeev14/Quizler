@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/default_backgorund_pattern"
     tools:context=".feature.onboarding.splash.SplashFragment">
 
     <ImageView
