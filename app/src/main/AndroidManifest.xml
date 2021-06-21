@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".app.QuizlerApp"
         android:theme="@style/Theme.Quizler">
         <activity android:name=".feature.onboarding.OnboardingActivity">
             <intent-filter>
