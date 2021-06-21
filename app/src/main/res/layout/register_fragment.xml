@@ -8,20 +8,30 @@
 
         <variable
             name="viewModel"
-            type="com.example.quizler.feature.onboarding.register.RegisterViewModel" />
+            type="com.example.quizler.feature.onboarding.auth.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/default_backgorund_pattern"
-        tools:context=".feature.onboarding.register.RegisterFragment">
+        tools:context=".feature.onboarding.auth.register.RegisterFragment">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/ivQuizlerLogo"
             android:layout_width="@dimen/logo_width"
             android:layout_height="@dimen/logo_height"
-            android:layout_marginBottom="@dimen/large_100"
             android:src="@drawable/ic_brain"
             app:layout_constraintBottom_toTopOf="@+id/tilUsername"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
+            app:errorContentDescription="@string/error_username"
             app:layout_constraintBottom_toTopOf="@+id/tilEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -47,9 +58,8 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.form.username}"
-                app:onTextChange="@{viewModel::onUsernameChanged}"
-                 />
+                android:text="@={viewModel.form.username}"
+                app:onTextChange="@{viewModel::onUsernameChanged}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,6 +69,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
+            app:errorContentDescription="@string/error_email_invalid"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/tilPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -71,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:text="@{viewModel.form.email}"
+                android:text="@={viewModel.form.email}"
                 app:onTextChange="@{viewModel::onEmailChanged}" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,6 +95,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             app:endIconMode="password_toggle"
+            app:errorContentDescription="@string/error_password"
+            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/btnRegister"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -95,9 +109,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:text="@{viewModel.form.password}"
-                app:onTextChange="@{viewModel::onPasswordChanged}"
-                 />
+                android:text="@={viewModel.form.password}"
+                app:onTextChange="@{viewModel::onPasswordChanged}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +118,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/large_100"
+            android:onClick="@{() -> viewModel.register()}"
             android:text="@string/register"
             app:layout_constraintBottom_toTopOf="@+id/llDivider"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,9 +139,10 @@
             tools:visibility="visible">
 
             <View
-                android:layout_width="0dp"
-                android:layout_height="0.5dp"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/default_separator_height"
                 android:layout_weight="1"
+                android:alpha=".5"
                 android:background="@color/black" />
 
             <TextView
@@ -136,13 +150,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/normal_100"
                 android:gravity="center_horizontal"
-                android:text="or"
+                android:text="@string/or"
                 android:textColor="@color/black" />
 
             <View
-                android:layout_width="0dp"
-                android:layout_height="0.5dp"
+                android:layout_width="@dimen/zero"
+                android:layout_height="@dimen/default_separator_height"
                 android:layout_weight="1"
+                android:alpha=".5"
                 android:background="@color/black" />
 
         </LinearLayout>
