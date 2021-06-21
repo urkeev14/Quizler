@@ -5,4 +5,13 @@
     <string name="password">password</string>
     <string name="register">Register</string>
     <string name="go_to_login">Go to Login</string>
+    <string name="error_username">Username must contain at least 5 characters.</string>
+    <string name="error_email_invalid">Invalid email</string>
+    <string name="error_password">Password must contain at least 8 characters, of which 1 uppercase, 1 lowercase letter, 1 special character and 1 digit</string>
+    <string name="or">or</string>
+    <string name="error_email_exist">This email already exists.</string>
+    <string name="error_unexpected">Unexpected error occured.</string>
+    <string name="error_username_exist">This username already exists.</string>
+    <string name="error_server_down">Unexpected server error. Please try again later.</string>
+    <string name="error_unknow">Unknown error occured.</string>
 </resources>
