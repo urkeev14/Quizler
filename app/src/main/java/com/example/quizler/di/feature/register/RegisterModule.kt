@@ -5,7 +5,7 @@ import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.service.player.PlayerService
 import com.example.quizler.domain.model.RegisterForm
-import com.example.quizler.feature.onboarding.auth.register.RegisterObservable
+import com.example.quizler.feature.onboarding.auth.register.RegisterBindingModel
 import com.example.quizler.feature.onboarding.auth.register.RegisterOutcomeHandler
 import com.example.quizler.feature.onboarding.auth.register.RegisterPlayerUserCaseMapper
 import com.example.quizler.feature.onboarding.auth.register.RegisterUseCase
@@ -41,7 +41,7 @@ object RegisterModule {
 
     @Singleton
     @Provides
-    fun provideRegisterObservable() = MutableLiveData(RegisterObservable())
+    fun provideRegisterObservable() = MutableLiveData(RegisterBindingModel())
 
     @Singleton
     @Provides
