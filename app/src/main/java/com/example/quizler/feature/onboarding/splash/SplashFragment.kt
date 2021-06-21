@@ -34,7 +34,7 @@ class SplashFragment : Fragment() {
         ObjectAnimator.ofFloat(binding.ivQuizlerLogo, "alpha", 1f).also {
             it.duration = 3000
             it.doOnEnd {
-                val direction = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+                val direction = SplashFragmentDirections.actionSplashFragmentToRegisterFragment()
                 findNavController().navigate(direction)
             }
         }.start()
