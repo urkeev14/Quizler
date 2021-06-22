@@ -14,9 +14,6 @@ import com.example.quizler.feature.onboarding.auth.register.snack
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -54,13 +51,16 @@ class LoginFragment : Fragment() {
     }
 
     private fun observeLoginResult() {
-        viewModel.loginState.observe(viewLifecycleOwner, { result ->
-            when (result) {
-                is State.Loading -> binding.progressBar.visibleOrGone(true)
-                is State.Success -> gotoMainActivity()
-                is State.Error -> showError()
+        viewModel.loginState.observe(
+            viewLifecycleOwner,
+            { result ->
+                when (result) {
+                    is State.Loading -> binding.progressBar.visibleOrGone(true)
+                    is State.Success -> gotoMainActivity()
+                    is State.Error -> showError()
+                }
             }
-        })
+        )
     }
 
     private fun showError() {
@@ -72,5 +72,4 @@ class LoginFragment : Fragment() {
         binding.progressBar.visibleOrGone(false)
         startActivity(MainActivity.newInstance(requireContext()))
     }
-
 }
