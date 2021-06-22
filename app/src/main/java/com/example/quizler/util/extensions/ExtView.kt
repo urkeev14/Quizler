@@ -1,6 +1,8 @@
 package com.example.quizler.util.extensions
 
 import android.view.View
+import androidx.annotation.StringRes
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Extension function that changes visibility of a [View] to [View.VISIBLE]
@@ -18,4 +20,13 @@ fun View.visibleOrGone(isVisible: Boolean) {
  */
 fun View.visibleOrInvisible(isVisible: Boolean) {
     this.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
+}
+
+/**
+ * Show a snackbar if parameter [stringRes] is not null
+ */
+fun View.snack(@StringRes stringRes: Int?) {
+    if (stringRes != null) {
+        Snackbar.make(this, stringRes, Snackbar.LENGTH_LONG).show()
+    }
 }
