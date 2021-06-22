@@ -4,20 +4,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.quizler.R
+import com.example.quizler.domain.data.remote.request.RegisterRequestBody
 import com.example.quizler.feature.onboarding.auth.usecase.AuthFormValidationUseCase
-import com.example.quizler.util.Event
+import com.example.quizler.util.SingleLiveEvent
+import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     val form: RegisterForm,
     private val _bindingModel: MutableLiveData<RegisterBindingModel>,
     private val formValidationUseCase: AuthFormValidationUseCase,
-    private val registerPlayerUseCase: RegisterUseCase
+    private val registerPlayerUseCase: RegisterUseCase,
+    val registerState: SingleLiveEvent<State<Boolean>>
 ) : ViewModel() {
 
     val bindingModel: LiveData<RegisterBindingModel> = _bindingModel
@@ -61,34 +63,16 @@ class RegisterViewModel @Inject constructor(
         )
     }
 
-    // FIXME: Uncomment network call for register when implemented
     fun register() {
         viewModelScope.launch {
-            setRegisterExecuted()
-            delay(2000)
+            registerState.postValue(State.Loading())
 
-            val outcome = RegisterOutcome(false, R.string.error_email_exist)
-//            val outcome = registerPlayerUseCase.register(Player(null, form.username, form.email, form.password))
+            delay(1500)
+            val state = registerPlayerUseCase.register(getRequestBody())
 
-            setRegisterOutcome(outcome)
+            registerState.postValue(state)
         }
     }
 
-    private fun setRegisterExecuted() {
-        _bindingModel.postValue(
-            _bindingModel.value!!.copy(
-                isLoading = true,
-            )
-        )
-    }
-
-    private fun setRegisterOutcome(outcome: RegisterOutcome) {
-        _bindingModel.postValue(
-            _bindingModel.value!!.copy(
-                isLoading = false,
-                isRegisterSuccess = outcome.isSuccessful,
-                errorMessage = Event(outcome.errorResId)
-            )
-        )
-    }
+    private fun getRequestBody() = RegisterRequestBody(form.username, form.email, form.password)
 }
