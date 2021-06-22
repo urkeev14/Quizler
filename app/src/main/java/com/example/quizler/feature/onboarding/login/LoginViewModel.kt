@@ -3,8 +3,6 @@ package com.example.quizler.feature.onboarding.login
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.quizler.domain.data.remote.request.LoginRequestBody
-import com.example.quizler.domain.model.LoginBindingModel
 import com.example.quizler.util.SingleLiveEvent
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -3,8 +3,7 @@ package com.example.quizler.di.feature.register
 import androidx.lifecycle.MutableLiveData
 import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
-import com.example.quizler.domain.data.remote.service.player.PlayerService
-import com.example.quizler.domain.model.RegisterForm
+import com.example.quizler.feature.onboarding.auth.register.RegisterForm
 import com.example.quizler.feature.onboarding.auth.register.RegisterBindingModel
 import com.example.quizler.feature.onboarding.auth.register.RegisterResponseHandler
 import com.example.quizler.feature.onboarding.auth.register.RegisterPlayerUserCaseMapper
@@ -15,7 +14,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import retrofit2.Retrofit
 
 @Module
 @InstallIn(SingletonComponent::class)

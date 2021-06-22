@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.quizler.R
-import com.example.quizler.domain.model.RegisterForm
 import com.example.quizler.feature.onboarding.auth.usecase.AuthFormValidationUseCase
 import com.example.quizler.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
