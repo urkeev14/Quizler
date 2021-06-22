@@ -2,6 +2,7 @@ package com.example.quizler.di
 
 import android.content.Context
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.quizler.BuildConfig
 import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.service.player.PlayerService
@@ -23,7 +24,7 @@ object ApplicationModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://quizler.com")
+            .baseUrl(BuildConfig.API_URL)
             .build()
     }
 
@@ -38,4 +39,8 @@ object ApplicationModule {
     fun provideLocalRepository(@ApplicationContext context: Context): LocalRepository {
         return LocalRepository(context.authDataStore)
     }
+
+    @Singleton
+    @Provides
+    fun providePlayerService(retrofit: Retrofit) = retrofit.create(PlayerService::class.java)
 }
