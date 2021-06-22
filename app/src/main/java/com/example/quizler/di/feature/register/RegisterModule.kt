@@ -6,7 +6,7 @@ import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.service.player.PlayerService
 import com.example.quizler.domain.model.RegisterForm
 import com.example.quizler.feature.onboarding.auth.register.RegisterBindingModel
-import com.example.quizler.feature.onboarding.auth.register.RegisterOutcomeHandler
+import com.example.quizler.feature.onboarding.auth.register.RegisterResponseHandler
 import com.example.quizler.feature.onboarding.auth.register.RegisterPlayerUserCaseMapper
 import com.example.quizler.feature.onboarding.auth.register.RegisterUseCase
 import com.example.quizler.feature.onboarding.auth.usecase.AuthFormValidationUseCase
@@ -36,7 +36,7 @@ object RegisterModule {
     fun provideRegisterPlayerUseCase(
         remoteRepo: RemoteRepository,
         localRepo: LocalRepository,
-        registerOutcomeHandler: RegisterOutcomeHandler
+        registerOutcomeHandler: RegisterResponseHandler
     ) = RegisterUseCase(remoteRepo, localRepo, registerOutcomeHandler)
 
     @Singleton
@@ -45,13 +45,11 @@ object RegisterModule {
 
     @Singleton
     @Provides
-    fun provideRegisterOutcomeHandler() = RegisterOutcomeHandler()
+    fun provideRegisterOutcomeHandler() = RegisterResponseHandler()
 
     @Singleton
     @Provides
     fun provideAuthFormValidationUseCase() = AuthFormValidationUseCase()
 
-    @Singleton
-    @Provides
-    fun providePlayerService(retrofit: Retrofit) = retrofit.create(PlayerService::class.java)
+
 }
