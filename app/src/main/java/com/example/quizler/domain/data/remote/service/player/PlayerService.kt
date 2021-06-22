@@ -11,8 +11,8 @@ import retrofit2.http.POST
 interface PlayerService {
 
     @POST("register")
-    fun register(@Body registerRequest: RegisterRequestBody): Response<RegisterResponse>
+    suspend fun register(@Body registerRequest: RegisterRequestBody): Response<RegisterResponse>
 
     @POST("login")
-    fun login(@Body loginRequestBody: LoginRequestBody): Response<LoginResponse>
+    suspend fun login(@Body loginRequestBody: LoginRequestBody): Response<LoginResponse>
 }

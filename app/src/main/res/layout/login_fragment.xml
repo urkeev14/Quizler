@@ -56,7 +56,7 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.bindingModel.username}" />
+                android:text="@={viewModel.loginBindingModel.username}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:text="@={viewModel.bindingModel.password}" />
+                android:text="@={viewModel.loginBindingModel.password}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

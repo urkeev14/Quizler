@@ -30,7 +30,10 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = LoginFragmentBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+
         initOnClickListeners()
+
         return binding.root
     }
 
@@ -53,15 +56,20 @@ class LoginFragment : Fragment() {
     private fun observeLoginResult() {
         viewModel.loginState.observe(viewLifecycleOwner, { result ->
             when (result) {
-                is State.Error -> requireView().snack(R.string.error_login)
                 is State.Loading -> binding.progressBar.visibleOrGone(true)
-                !is State.Loading -> binding.progressBar.visibleOrGone(false)
                 is State.Success -> gotoMainActivity()
+                is State.Error -> showError()
             }
         })
     }
 
+    private fun showError() {
+        binding.progressBar.visibleOrGone(false)
+        requireView().snack(R.string.error_login)
+    }
+
     private fun gotoMainActivity() {
+        binding.progressBar.visibleOrGone(false)
         startActivity(MainActivity.newInstance(requireContext()))
     }
 
