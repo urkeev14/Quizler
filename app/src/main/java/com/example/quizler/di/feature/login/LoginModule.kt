@@ -1,6 +1,5 @@
 package com.example.quizler.di.feature.login
 
-import androidx.lifecycle.MutableLiveData
 import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.feature.onboarding.login.LoginBindingModel

@@ -6,9 +6,9 @@ import com.example.quizler.domain.data.remote.request.LoginRequestBody
 import com.example.quizler.util.SingleLiveEvent
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel
@@ -34,5 +34,4 @@ class LoginViewModel
         val password = loginBindingModel.password
         return LoginRequestBody(username, password)
     }
-
 }

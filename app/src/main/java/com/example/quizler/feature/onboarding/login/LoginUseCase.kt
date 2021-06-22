@@ -6,7 +6,6 @@ import com.example.quizler.domain.data.remote.request.LoginRequestBody
 import com.example.quizler.util.State
 import javax.inject.Inject
 
-
 class LoginUseCase
 @Inject constructor(
     private val localRepository: LocalRepository,

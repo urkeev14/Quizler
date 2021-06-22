@@ -3,10 +3,10 @@ package com.example.quizler.di.feature.register
 import androidx.lifecycle.MutableLiveData
 import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
-import com.example.quizler.feature.onboarding.auth.register.RegisterForm
 import com.example.quizler.feature.onboarding.auth.register.RegisterBindingModel
-import com.example.quizler.feature.onboarding.auth.register.RegisterResponseHandler
+import com.example.quizler.feature.onboarding.auth.register.RegisterForm
 import com.example.quizler.feature.onboarding.auth.register.RegisterPlayerUserCaseMapper
+import com.example.quizler.feature.onboarding.auth.register.RegisterResponseHandler
 import com.example.quizler.feature.onboarding.auth.register.RegisterUseCase
 import com.example.quizler.feature.onboarding.auth.usecase.AuthFormValidationUseCase
 import dagger.Module
@@ -48,6 +48,4 @@ object RegisterModule {
     @Singleton
     @Provides
     fun provideAuthFormValidationUseCase() = AuthFormValidationUseCase()
-
-
 }
