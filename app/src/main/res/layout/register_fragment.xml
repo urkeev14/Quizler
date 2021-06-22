@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/default_backgorund_pattern"
+        android:background="@drawable/default_background_pattern"
         tools:context=".feature.onboarding.auth.register.RegisterFragment">
 
         <ProgressBar
@@ -70,7 +70,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/email"
             app:errorContentDescription="@string/error_email_invalid"
-            app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/tilPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -96,8 +95,7 @@
             android:hint="@string/password"
             app:endIconMode="password_toggle"
             app:errorContentDescription="@string/error_password"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+            app:layout_constraintBottom_toTopOf="@+id/llContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,67 +112,79 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.register()}"
-            android:text="@string/register"
-            app:layout_constraintBottom_toTopOf="@+id/llDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
-
         <LinearLayout
-            android:id="@+id/llDivider"
+            android:id="@+id/llContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnRegister"
-            tools:layout_editor_absoluteX="16dp"
-            tools:visibility="visible">
-
-            <View
-                android:layout_width="@dimen/zero"
-                android:layout_height="@dimen/default_separator_height"
-                android:layout_weight="1"
-                android:alpha=".5"
-                android:background="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/normal_100"
-                android:gravity="center_horizontal"
-                android:text="@string/or"
-                android:textColor="@color/black" />
-
-            <View
-                android:layout_width="@dimen/zero"
-                android:layout_height="@dimen/default_separator_height"
-                android:layout_weight="1"
-                android:alpha=".5"
-                android:background="@color/black" />
-
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/go_to_login"
-            android:textColor="@color/secondaryDarkColor"
+            android:layout_marginTop="@dimen/large_100"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llDivider"
-            app:strokeColor="@color/secondaryDarkColor" />
+            app:layout_constraintTop_toBottomOf="@id/tilPassword">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.register()}"
+                android:text="@string/register"
+                app:layout_constraintBottom_toTopOf="@+id/llDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+            <LinearLayout
+                android:id="@+id/llDivider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+                tools:layout_editor_absoluteX="16dp"
+                tools:visibility="visible">
+
+                <View
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="@dimen/default_separator_height"
+                    android:layout_weight="1"
+                    android:alpha=".5"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/normal_100"
+                    android:gravity="center_horizontal"
+                    android:text="@string/or"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="@dimen/default_separator_height"
+                    android:layout_weight="1"
+                    android:alpha=".5"
+                    android:background="@color/black" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogin"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/go_to_login"
+                android:textColor="@color/secondaryDarkColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llDivider"
+                app:strokeColor="@color/secondaryDarkColor" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
