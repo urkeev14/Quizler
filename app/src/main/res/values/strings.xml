@@ -14,4 +14,7 @@
     <string name="error_username_exist">This username already exists.</string>
     <string name="error_server_down">Unexpected server error. Please try again later.</string>
     <string name="error_unknow">Unknown error occured.</string>
+    <string name="login">Login</string>
+    <string name="go_to_register">Go to Register</string>
+    <string name="error_login">Incorrect username or password</string>
 </resources>
