@@ -5,28 +5,64 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.quizler.R
+import com.example.quizler.databinding.LoginFragmentBinding
+import com.example.quizler.feature.main.MainActivity
+import com.example.quizler.feature.onboarding.auth.register.snack
+import com.example.quizler.util.State
+import com.example.quizler.util.extensions.visibleOrGone
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var binding: LoginFragmentBinding
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
+        binding = LoginFragmentBinding.inflate(inflater, container, false)
+        initOnClickListeners()
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initOnClickListeners() {
+        binding.btnRegister.setOnClickListener {
+            gotoRegisterFragment()
+        }
     }
+
+    private fun gotoRegisterFragment() {
+        val direction = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+        findNavController().navigate(direction)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeLoginResult()
+    }
+
+    private fun observeLoginResult() {
+        viewModel.loginState.observe(viewLifecycleOwner, { result ->
+            when (result) {
+                is State.Error -> requireView().snack(R.string.error_login)
+                is State.Loading -> binding.progressBar.visibleOrGone(true)
+                !is State.Loading -> binding.progressBar.visibleOrGone(false)
+                is State.Success -> gotoMainActivity()
+            }
+        })
+    }
+
+    private fun gotoMainActivity() {
+        startActivity(MainActivity.newInstance(requireContext()))
+    }
+
 }
