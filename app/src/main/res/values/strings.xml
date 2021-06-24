@@ -17,4 +17,9 @@
     <string name="login">Login</string>
     <string name="go_to_register">Go to Register</string>
     <string name="error_login">Incorrect username or password</string>
+    <string name="home">Home</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="new_question">New question</string>
+    <string name="statistics">Statistics</string>
+    <string name="profile">Profile</string>
 </resources>
