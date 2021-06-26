@@ -12,6 +12,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers.IO
+
+private const val LOGIN_DELAY = 700L
 
 @HiltViewModel
 class LoginViewModel
@@ -52,11 +55,11 @@ class LoginViewModel
     }
 
     fun login() {
-        viewModelScope.launch {
+        viewModelScope.launch(IO) {
             loginState.postValue(State.Loading())
 
             val value = useCase.login(getLoginRequestBody())
-            delay(1500)
+            delay(LOGIN_DELAY)
 
             loginState.postValue(value)
         }

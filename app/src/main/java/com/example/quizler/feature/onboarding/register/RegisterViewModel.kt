@@ -12,6 +12,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers.IO
+
+private const val REGISTER_DELAY = 700L
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
@@ -64,11 +67,11 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun register() {
-        viewModelScope.launch {
+        viewModelScope.launch(IO) {
             registerState.postValue(State.Loading())
 
-            delay(1500)
             val state = registerPlayerUseCase.register(getRequestBody())
+            delay(REGISTER_DELAY)
 
             registerState.postValue(state)
         }
