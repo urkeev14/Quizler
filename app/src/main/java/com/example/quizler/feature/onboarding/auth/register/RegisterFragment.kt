@@ -11,7 +11,7 @@ import com.example.quizler.R
 import com.example.quizler.databinding.RegisterFragmentBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
-import com.example.quizler.util.extensions.enableIfNoError
+import com.example.quizler.util.extensions.isValidAndPopulated
 import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.validated
 import com.example.quizler.util.extensions.visibleOrGone
@@ -47,7 +47,7 @@ class RegisterFragment : Fragment() {
             viewLifecycleOwner,
             {
                 with(binding) {
-                    btnRegister.enableIfNoError(etEmail, etPassword, etUsername)
+                    btnRegister.isEnabled = isValidAndPopulated(etEmail, etPassword, etUsername)
 
                     etEmail.validated(it.isEmailValid, R.string.error_email_invalid)
                     etUsername.validated(it.isUsernameValid, R.string.error_username)
