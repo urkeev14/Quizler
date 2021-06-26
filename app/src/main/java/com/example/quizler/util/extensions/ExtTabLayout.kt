@@ -13,6 +13,5 @@ fun TabLayout.onTabSelected(callback: (Int) -> Unit) {
 
         override fun onTabReselected(tab: TabLayout.Tab?) {
         }
-
     })
 }

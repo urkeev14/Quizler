@@ -1,11 +1,11 @@
 package com.example.quizler.feature.main.statistics
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.quizler.R
 
 class StatisticsFragment : Fragment() {
@@ -17,7 +17,8 @@ class StatisticsFragment : Fragment() {
     private lateinit var viewModel: StatisticsViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.statistics_fragment, container, false)
@@ -28,5 +29,4 @@ class StatisticsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(StatisticsViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

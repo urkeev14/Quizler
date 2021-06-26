@@ -1,11 +1,11 @@
 package com.example.quizler.feature.main.home.quiz_mode.length
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.quizler.R
 
 class LengthModeFragment : Fragment() {
@@ -17,7 +17,8 @@ class LengthModeFragment : Fragment() {
     private lateinit var viewModel: LengthModeViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.length_mode_fragment, container, false)
@@ -28,5 +29,4 @@ class LengthModeFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LengthModeViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

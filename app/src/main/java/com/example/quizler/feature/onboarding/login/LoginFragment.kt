@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.quizler.R
 import com.example.quizler.databinding.LoginFragmentBinding
 import com.example.quizler.feature.main.MainActivity
-import com.example.quizler.feature.onboarding.auth.register.snack
 import com.example.quizler.util.State
+import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
