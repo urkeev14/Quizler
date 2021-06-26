@@ -54,11 +54,6 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun gotoRegisterFragment() {
-        val direction = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
-        findNavController().navigate(direction)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeLoginResult()
@@ -85,5 +80,10 @@ class LoginFragment : Fragment() {
     private fun gotoMainActivity() {
         binding.progressBar.visibleOrGone(false)
         startActivity(MainActivity.newInstance(requireContext()))
+    }
+
+    private fun gotoRegisterFragment() {
+        val direction = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+        findNavController().navigate(direction)
     }
 }
