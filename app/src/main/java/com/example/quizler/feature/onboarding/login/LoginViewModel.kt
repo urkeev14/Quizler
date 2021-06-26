@@ -9,10 +9,10 @@ import com.example.quizler.feature.onboarding.AuthFormValidationUseCase
 import com.example.quizler.util.SingleLiveEvent
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlinx.coroutines.Dispatchers.IO
 
 private const val LOGIN_DELAY = 700L
 

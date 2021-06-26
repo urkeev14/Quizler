@@ -11,7 +11,6 @@ import com.example.quizler.R
 import com.example.quizler.databinding.LoginFragmentBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
-import com.example.quizler.util.extensions.isValidAndPopulated
 import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.validated
 import com.example.quizler.util.extensions.visibleOrGone
@@ -38,14 +37,17 @@ class LoginFragment : Fragment() {
     }
 
     private fun observeLoginFormPopulation() {
-        viewModel.bindingModel.observe(viewLifecycleOwner, {
-            with(binding) {
-                etUsername.validated(it.isUsernameValid, R.string.error_username_login)
-                etPassword.validated(it.isPasswordValid, R.string.error_password)
+        viewModel.bindingModel.observe(
+            viewLifecycleOwner,
+            {
+                with(binding) {
+                    etUsername.validated(it.isUsernameValid, R.string.error_username_login)
+                    etPassword.validated(it.isPasswordValid, R.string.error_password)
 
-                btnLogin.isEnabled = it.isPasswordValid && it.isUsernameValid
+                    btnLogin.isEnabled = it.isPasswordValid && it.isUsernameValid
+                }
             }
-        })
+        )
     }
 
     private fun initOnClickListeners() {

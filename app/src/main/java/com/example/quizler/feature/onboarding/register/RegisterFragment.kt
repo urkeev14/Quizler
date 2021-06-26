@@ -11,7 +11,6 @@ import com.example.quizler.R
 import com.example.quizler.databinding.RegisterFragmentBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
-import com.example.quizler.util.extensions.isValidAndPopulated
 import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.validated
 import com.example.quizler.util.extensions.visibleOrGone
