@@ -97,4 +97,10 @@ class RegisterFragment : Fragment() {
         binding.progressBar.visibleOrGone(false)
         requireView().snack(messageResId)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
+    }
 }
