@@ -25,17 +25,17 @@ class RegisterViewModel @Inject constructor(
     val bindingModel: LiveData<RegisterBindingModel> = _bindingModel
 
     fun onUsernameChanged() {
-        val isValid = formValidationUseCase.validateUsernameForRegister(form.username)
+        val isValid = formValidationUseCase.validateRegisterUsername(form.username)
         setIsUsernameValid(isValid)
     }
 
     fun onEmailChanged() {
-        val isValid = formValidationUseCase.validateEmail(form.email)
+        val isValid = formValidationUseCase.validateRegisterEmail(form.email)
         setIsEmailValid(isValid)
     }
 
     fun onPasswordChanged() {
-        val isValid = formValidationUseCase.validatePasswordForRegister(form.password)
+        val isValid = formValidationUseCase.validateRegisterPassword(form.password)
         setIsPasswordValid(isValid)
     }
 

@@ -19,9 +19,9 @@ private const val MIN_LENGTH_USERNAME = 5
 private const val MIN_LENGTH_PASSWORD = 8
 
 class AuthFormValidationUseCase {
-    fun validateUsernameForLogin(username: String): Boolean = username.length >= MIN_LENGTH_USERNAME
-    fun validatePasswordForLogin(password: String): Boolean = password.length >= MIN_LENGTH_PASSWORD
-    fun validateUsernameForRegister(username: String): Boolean = username.matches(Regex(REGEX_USERNAME))
-    fun validatePasswordForRegister(password: String): Boolean = password.matches(Regex(REGEX_PASSWORD))
-    fun validateEmail(email: String): Boolean = email.matches(Regex(REGEX_EMAIL))
+    fun validateLoginUsername(username: String): Boolean = username.length >= MIN_LENGTH_USERNAME
+    fun validateLoginPassword(password: String): Boolean = password.length >= MIN_LENGTH_PASSWORD
+    fun validateRegisterUsername(username: String): Boolean = username.matches(Regex(REGEX_USERNAME))
+    fun validateRegisterPassword(password: String): Boolean = password.matches(Regex(REGEX_PASSWORD))
+    fun validateRegisterEmail(email: String): Boolean = email.matches(Regex(REGEX_EMAIL))
 }

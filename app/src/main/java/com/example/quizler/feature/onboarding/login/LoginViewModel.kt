@@ -26,12 +26,12 @@ class LoginViewModel
     val bindingModel: LiveData<LoginBindingModel> = _bindingModel
 
     fun onUsernameChanged() {
-        val isValid = formValidationUseCase.validateUsernameForLogin(form.username)
+        val isValid = formValidationUseCase.validateLoginUsername(form.username)
         setIsUsernameValid(isValid)
     }
 
     fun onPasswordChanged() {
-        val isValid = formValidationUseCase.validatePasswordForLogin(form.password)
+        val isValid = formValidationUseCase.validateLoginPassword(form.password)
         setIsPasswordValid(isValid)
     }
 
