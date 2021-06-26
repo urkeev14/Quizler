@@ -15,9 +15,13 @@ private const val REGEX_PASSWORD =
 private const val REGEX_USERNAME = "^[a-zA-Z0-9._]{5,}\$"
 private const val REGEX_EMAIL =
     "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?!-)(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
+private const val MIN_LENGTH_USERNAME = 5
+private const val MIN_LENGTH_PASSWORD = 8
 
 class AuthFormValidationUseCase {
-    fun validateUsername(username: String): Boolean = username.matches(Regex(REGEX_USERNAME))
-    fun validatePassword(password: String): Boolean = password.matches(Regex(REGEX_PASSWORD))
+    fun validateUsernameForLogin(username: String): Boolean = username.length >= MIN_LENGTH_USERNAME
+    fun validatePasswordForLogin(password: String): Boolean = password.length >= MIN_LENGTH_PASSWORD
+    fun validateUsernameForRegister(username: String): Boolean = username.matches(Regex(REGEX_USERNAME))
+    fun validatePasswordForRegister(password: String): Boolean = password.matches(Regex(REGEX_PASSWORD))
     fun validateEmail(email: String): Boolean = email.matches(Regex(REGEX_EMAIL))
 }
