@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.example.quizler.R
 import com.example.quizler.databinding.HomeFragmentBinding
 import com.example.quizler.util.extensions.onTabSelected
