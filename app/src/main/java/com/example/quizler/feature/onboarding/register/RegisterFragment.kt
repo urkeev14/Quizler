@@ -47,10 +47,10 @@ class RegisterFragment : Fragment() {
             viewLifecycleOwner,
             {
                 with(binding) {
-                    btnRegister.isEnabled = isValidAndPopulated(etEmail, etPassword, etUsername)
+                    btnRegister.isEnabled = it.isEmailValid && it.isEmailAvailable && it.isPasswordValid && it.isUsernameValid
 
                     etEmail.validated(it.isEmailValid, R.string.error_email_invalid)
-                    etUsername.validated(it.isUsernameValid, R.string.error_username)
+                    etUsername.validated(it.isUsernameValid, R.string.error_username_register)
                     etPassword.validated(it.isPasswordValid, R.string.error_password)
                 }
             }
