@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.quizler.R
 import com.example.quizler.databinding.HomeFragmentBinding
 import com.example.quizler.util.extensions.onTabSelected
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +19,8 @@ class HomeFragment : Fragment() {
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
-    private val navController by lazy { findNavController() }
+    private val navHostFragment by lazy { childFragmentManager.findFragmentById(R.id.nav_host_home) as NavHostFragment }
+    private val navController by lazy { navHostFragment.navController }
 
     override fun onCreateView(
         inflater: LayoutInflater,
