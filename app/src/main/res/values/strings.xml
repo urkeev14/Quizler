@@ -26,4 +26,5 @@
     <string name="category">Category</string>
     <string name="difficulty">Difficulty</string>
     <string name="error_username_login">Invalid username</string>
+    <string name="zen">Zen</string>
 </resources>

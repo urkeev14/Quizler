@@ -39,4 +39,8 @@
         <item name="android:textColor">@color/primaryDarkColor</item>
     </style>
 
+    <style name="TextAppearance.Quizler.ListItemQuizComplexTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+    </style>
+
 </resources>
