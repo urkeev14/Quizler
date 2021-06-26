@@ -6,6 +6,7 @@ import com.example.quizler.BuildConfig
 import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.service.player.PlayerService
+import com.example.quizler.feature.main.home.quiz_mode.QuizModeScreenDirectionResolver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,4 +46,8 @@ object ApplicationModule {
     @Singleton
     @Provides
     fun providePlayerService(retrofit: Retrofit) = retrofit.create(PlayerService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideQuizModeScreenDirectionResolver() = QuizModeScreenDirectionResolver()
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/lengthModeFragment">
+
+    <fragment
+        android:id="@+id/categoryModeFragment"
+        android:name="com.example.quizler.feature.main.home.quiz_mode.cateogry.CategoryModeFragment"
+        android:label="CategoryModeFragment" />
+    <fragment
+        android:id="@+id/lengthModeFragment"
+        android:name="com.example.quizler.feature.main.home.quiz_mode.length.LengthModeFragment"
+        android:label="LengthModeFragment" />
+    <fragment
+        android:id="@+id/difficultyModeFragment"
+        android:name="com.example.quizler.feature.main.home.quiz_mode.difficulty.DifficultyModeFragment"
+        android:label="DifficultyModeFragment" />
+
+    <action
+        android:id="@+id/action_global_lengthModeFragment"
+        app:destination="@id/lengthModeFragment" />
+    <action
+        android:id="@+id/action_global_categoryModeFragment"
+        app:destination="@id/categoryModeFragment" />
+    <action
+        android:id="@+id/action_global_difficultyModeFragment"
+        app:destination="@id/difficultyModeFragment" />
+</navigation>
