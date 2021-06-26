@@ -1,4 +1,4 @@
-package com.example.quizler.feature.onboarding.auth.register
+package com.example.quizler.feature.onboarding.register
 
 import com.example.quizler.domain.data.response.RegisterResponse
 import com.example.quizler.domain.model.Player

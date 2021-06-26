@@ -1,4 +1,4 @@
-package com.example.quizler.feature.onboarding.auth.register
+package com.example.quizler.feature.onboarding.register
 
 import android.os.Bundle
 import android.view.LayoutInflater

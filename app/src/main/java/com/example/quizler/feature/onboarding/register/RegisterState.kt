@@ -1,4 +1,4 @@
-package com.example.quizler.feature.onboarding.auth.register
+package com.example.quizler.feature.onboarding.register
 
 data class RegisterState(
     val isSuccessful: Boolean,

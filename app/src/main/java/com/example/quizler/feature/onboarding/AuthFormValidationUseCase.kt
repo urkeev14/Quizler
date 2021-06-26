@@ -1,4 +1,4 @@
-package com.example.quizler.feature.onboarding.auth.usecase
+package com.example.quizler.feature.onboarding
 
 /**
  *^                 # start-of-string

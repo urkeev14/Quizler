@@ -1,11 +1,11 @@
-package com.example.quizler.feature.onboarding.auth.register
+package com.example.quizler.feature.onboarding.register
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.quizler.domain.data.remote.request.RegisterRequestBody
-import com.example.quizler.feature.onboarding.auth.usecase.AuthFormValidationUseCase
+import com.example.quizler.feature.onboarding.AuthFormValidationUseCase
 import com.example.quizler.util.SingleLiveEvent
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel

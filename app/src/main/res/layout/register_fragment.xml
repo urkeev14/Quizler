@@ -8,14 +8,14 @@
 
         <variable
             name="viewModel"
-            type="com.example.quizler.feature.onboarding.auth.register.RegisterViewModel" />
+            type="com.example.quizler.feature.onboarding.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/default_background_pattern"
-        tools:context=".feature.onboarding.auth.register.RegisterFragment">
+        tools:context=".feature.onboarding.register.RegisterFragment">
 
         <ProgressBar
             android:id="@+id/progressBar"

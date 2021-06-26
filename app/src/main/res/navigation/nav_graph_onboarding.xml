@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.quizler.feature.onboarding.auth.register.RegisterFragment"
+        android:name="com.example.quizler.feature.onboarding.register.RegisterFragment"
         android:label="register_fragment"
         tools:layout="@layout/register_fragment">
         <action

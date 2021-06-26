@@ -1,4 +1,4 @@
-package com.example.quizler.feature.onboarding.auth.register
+package com.example.quizler.feature.onboarding.register
 
 data class RegisterBindingModel(
     var isEmailValid: Boolean = false,
