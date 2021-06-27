@@ -21,8 +21,8 @@
 
     <!-- Length mode colors-->
     <color name="colorZen">#fce0a2</color>
-    <color name="colorExam">#c7ede6</color>
-    <color name="colorMarathon">#E0827E</color>
+    <color name="colorTest">#c7ede6</color>
+    <color name="colorMaraton">#E0827E</color>
 
     <!-- Category mode colors-->
     <color name="colorGeografija">#A5D6A7</color>
