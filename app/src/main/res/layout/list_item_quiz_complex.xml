@@ -1,112 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    app:cardCornerRadius="10dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.quizler.domain.model.QuizModeItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/small_100"
+        app:cardCornerRadius="10dp">
 
-        <ImageView
-            android:id="@+id/ivModeLogo"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:background="@color/colorZen"
-            tools:backgroundTint="@color/colorZen"
-            tools:src="@drawable/ic_len_zen" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/small_125"
-            android:layout_marginTop="@dimen/small_125"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivModeLogo"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Marathon" />
+            <ImageView
+                android:id="@+id/ivModeLogo"
+                app:colorResIdName="@{item.name}"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcPrefix="@{`ic_mode_`}"
+                app:srcSufix="@{item.name}"
+                tools:background="@color/colorZen"
+                tools:backgroundTint="@color/colorZen"
+                tools:src="@drawable/ic_mode_zen" />
 
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/small_125"
-            android:elegantTextHeight="true"
-            android:lineSpacingExtra="-8dp"
-            android:maxLines="3"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivModeLogo"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            tools:text="@tools:sample/lorem/random" />
+            <TextView
+                android:id="@+id/tvTitle"
+                resourceIdPostfix="@{item.name}"
+                resourceIdPrefix="@{`mode_title_`}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_125"
+                android:layout_marginTop="@dimen/small_125"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivModeLogo"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Marathon" />
 
-        <ImageView
-            android:id="@+id/idItem1"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginEnd="@dimen/normal_150"
-            app:layout_constraintBottom_toBottomOf="@id/ivItem2"
-            app:layout_constraintEnd_toStartOf="@id/ivItem2"
-            app:layout_constraintTop_toTopOf="@id/ivItem2"
-            tools:src="@drawable/ic_number_of_questions" />
+            <TextView
+                android:id="@+id/tvDescription"
+                resourceIdPostfix="@{item.name}"
+                resourceIdPrefix="@{`mode_description_`}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/small_125"
+                android:elegantTextHeight="true"
+                android:lineSpacingExtra="-8dp"
+                android:maxLines="3"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/ivTimePerQuestion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivModeLogo"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:text="@tools:sample/lorem/random" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="@id/idItem1"
-            app:layout_constraintStart_toStartOf="@id/idItem1"
-            app:layout_constraintTop_toBottomOf="@id/idItem1"
-            tools:text="20" />
+            <ImageView
+                android:id="@+id/ivItem1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="@dimen/normal_150"
+                android:src="@drawable/ic_number_of_questions"
+                app:layout_constraintBottom_toBottomOf="@id/ivTimePerQuestion"
+                app:layout_constraintEnd_toStartOf="@id/ivTimePerQuestion"
+                app:layout_constraintTop_toTopOf="@id/ivTimePerQuestion" />
 
-        <ImageView
-            android:id="@+id/ivItem2"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginTop="@dimen/small_100"
-            app:layout_constraintEnd_toEndOf="@id/tvDescription"
-            app:layout_constraintStart_toStartOf="@id/tvDescription"
-            app:layout_constraintTop_toBottomOf="@id/tvDescription"
-            tools:src="@drawable/ic_time" />
+            <TextView
+                android:id="@+id/tvNumberOfQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{`` + item.numberOfQuestions}"
+                app:layout_constraintEnd_toEndOf="@id/ivItem1"
+                app:layout_constraintStart_toStartOf="@id/ivItem1"
+                app:layout_constraintTop_toBottomOf="@id/ivItem1"
+                tools:text="20" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="@id/ivItem2"
-            app:layout_constraintStart_toStartOf="@id/ivItem2"
-            app:layout_constraintTop_toBottomOf="@id/ivItem2"
-            tools:text="15" />
+            <ImageView
+                android:id="@+id/ivTimePerQuestion"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintBottom_toTopOf="@id/tvTimePerQuestion"
+                app:layout_constraintEnd_toEndOf="@id/tvTimePerQuestion"
+                app:layout_constraintStart_toStartOf="@id/tvTimePerQuestion" />
 
-        <ImageView
-            android:id="@+id/ivItem3"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="@dimen/normal_150"
-            android:src="@drawable/ic_number_of_hints"
-            app:layout_constraintBottom_toBottomOf="@id/ivItem2"
-            app:layout_constraintStart_toEndOf="@id/ivItem2"
-            app:layout_constraintTop_toTopOf="@id/ivItem2" />
+            <TextView
+                android:id="@+id/tvTimePerQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/small_100"
+                android:text="@{`` + item.timePerQuestion}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivModeLogo"
+                tools:text="15" />
 
-        <TextView
-            android:id="@+id/tvItem3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="@id/ivItem3"
-            app:layout_constraintStart_toStartOf="@id/ivItem3"
-            app:layout_constraintTop_toBottomOf="@id/ivItem3"
-            tools:text="20" />
+            <ImageView
+                android:id="@+id/ivItem3"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="@dimen/normal_150"
+                android:src="@drawable/ic_number_of_hints"
+                app:layout_constraintBottom_toBottomOf="@id/ivTimePerQuestion"
+                app:layout_constraintStart_toEndOf="@id/ivTimePerQuestion"
+                app:layout_constraintTop_toTopOf="@id/ivTimePerQuestion" />
+
+            <TextView
+                android:id="@+id/tvNumberOfHints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{`` + item.numberOfHints}"
+                app:layout_constraintEnd_toEndOf="@id/ivItem3"
+                app:layout_constraintStart_toStartOf="@id/ivItem3"
+                app:layout_constraintTop_toBottomOf="@id/ivItem3"
+                tools:text="20" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>

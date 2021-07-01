@@ -15,17 +15,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/length" />
+            android:text="@string/tab_length" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/category" />
+            android:text="@string/tab_category" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/difficulty" />
+            android:text="@string/tab_difficulty" />
 
     </com.google.android.material.tabs.TabLayout>
 

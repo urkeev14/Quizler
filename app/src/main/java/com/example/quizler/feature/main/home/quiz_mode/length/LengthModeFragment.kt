@@ -5,28 +5,42 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
+import com.example.quizler.databinding.LengthModeFragmentBinding
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LengthModeFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LengthModeFragment()
-    }
-
-    private lateinit var viewModel: LengthModeViewModel
+    private val viewModel: LengthModeViewModel by viewModels()
+    private var _binding: LengthModeFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.length_mode_fragment, container, false)
+        _binding = LengthModeFragmentBinding.inflate(inflater, container, false)
+        initRecyclerView()
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LengthModeViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initRecyclerView() {
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.recyclerView.adapter = QuizItemComplexAdapter()
+        binding.recyclerView.addItemDecoration(QuizItemComplexItemDecorator())
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
+    }
+
 }
