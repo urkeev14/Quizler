@@ -25,5 +25,4 @@ object UseCaseModule {
     @Provides
     @Singleton
     fun provideQuizModeMockDataProvider() = QuizModeMockDataProvider()
-
 }

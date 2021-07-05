@@ -34,19 +34,21 @@ class DifficultyModeFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.data.observe(viewLifecycleOwner, { state ->
-            when (state) {
-                is State.Loading -> binding.progressBar.visibleOrGone(true)
-                is State.Success -> handleSuccess(state.data)
-                is State.Error -> handleFailure(state.data, state.messageResId)
+        viewModel.data.observe(
+            viewLifecycleOwner,
+            { state ->
+                when (state) {
+                    is State.Loading -> binding.progressBar.visibleOrGone(true)
+                    is State.Success -> handleSuccess(state.data)
+                    is State.Error -> handleFailure(state.data, state.messageResId)
+                }
             }
-        })
+        )
     }
 
     private fun handleSuccess(data: List<QuizMode>?) {
         populateRecyclerView(data)
     }
-
 
     private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
         populateRecyclerView(data)

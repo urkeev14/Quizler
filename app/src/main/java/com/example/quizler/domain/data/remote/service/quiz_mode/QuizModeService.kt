@@ -9,5 +9,4 @@ interface QuizModeService {
 
     @GET("/mode/{mode_name}")
     suspend fun getModes(@Path("mode_name") modeName: String): Response<QuizModeResponse>
-
 }

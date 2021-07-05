@@ -42,7 +42,6 @@ fun View.snack(string: String?) = string?.let {
     Snackbar.make(this, string, Snackbar.LENGTH_LONG).show()
 }
 
-
 /**
  * Extension function that returns a resource ID from generated class [R]
  * by the name of that resource

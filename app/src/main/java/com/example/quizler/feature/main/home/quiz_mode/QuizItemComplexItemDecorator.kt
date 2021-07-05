@@ -25,5 +25,4 @@ class QuizItemComplexItemDecorator(
             bottom = spacing
         }
     }
-
 }

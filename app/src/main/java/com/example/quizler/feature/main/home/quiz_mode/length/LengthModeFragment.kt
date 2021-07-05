@@ -6,15 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.quizler.R
-import com.example.quizler.databinding.DifficultyModeFragmentBinding
 import com.example.quizler.databinding.LengthModeFragmentBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
-import com.example.quizler.feature.main.home.quiz_mode.difficulty.DifficultyModeViewModel
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.visibleOrGone
@@ -38,19 +34,21 @@ class LengthModeFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.data.observe(viewLifecycleOwner, { state ->
-            when (state) {
-                is State.Loading -> binding.progressBar.visibleOrGone(true)
-                is State.Success -> handleSuccess(state.data)
-                is State.Error -> handleFailure(state.data, state.messageResId)
+        viewModel.data.observe(
+            viewLifecycleOwner,
+            { state ->
+                when (state) {
+                    is State.Loading -> binding.progressBar.visibleOrGone(true)
+                    is State.Success -> handleSuccess(state.data)
+                    is State.Error -> handleFailure(state.data, state.messageResId)
+                }
             }
-        })
+        )
     }
 
     private fun handleSuccess(data: List<QuizMode>?) {
         populateRecyclerView(data)
     }
-
 
     private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
         populateRecyclerView(data)
@@ -70,5 +68,4 @@ class LengthModeFragment : Fragment() {
 
         _binding = null
     }
-
 }

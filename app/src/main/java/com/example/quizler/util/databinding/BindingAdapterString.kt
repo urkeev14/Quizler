@@ -4,7 +4,6 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.quizler.util.extensions.capitalizeAndJoin
 import com.example.quizler.util.extensions.getColorResId
 import com.example.quizler.util.extensions.getDrawableResIdByName
 import com.example.quizler.util.extensions.getStringByResIdName

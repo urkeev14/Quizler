@@ -56,5 +56,4 @@ class QuizModeMockDataProvider {
         "tezina" to listDifficulty,
         "duzina" to listLength
     )
-
 }
