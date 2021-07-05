@@ -1,11 +1,12 @@
 package com.example.quizler.domain.model
 
-/**
- * Represents an item in [QuizItemComplexAdapter] class
- */
-data class QuizModeDto(
+data class QuizMode(
     val id: String,
     val name: String,
+    val titleResName: String,
+    val descriptionResName: String,
+    val modeIconSrc: String,
+    val modeIconBackgroundColor: String,
     val numberOfHints: Int,
     val numberOfQuestions: Int,
     val timePerQuestion: Int,
