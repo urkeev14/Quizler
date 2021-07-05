@@ -26,10 +26,10 @@
     <string name="tab_category">Kategorija</string>
     <string name="tab_difficulty">Tezina</string>
     <string name="mode_title_zen">Zen</string>
-    <string name="mode_title_test">Test</string>
+    <string name="mode_title_exam">Test</string>
     <string name="mode_title_marathon">Maraton</string>
     <string name="mode_description_zen">Iskuliraj, popij pivo.</string>
-    <string name="mode_description_test">...sad smo vec ozbiljniji, a?</string>
+    <string name="mode_description_exam">...sad smo vec ozbiljniji, a?</string>
     <string name="mode_description_marathon">...okej, ti mora da si streber...</string>
     <string name="mode_title_easy">Lako</string>
     <string name="mode_title_average">Srednje</string>
@@ -38,11 +38,11 @@
     <string name="mode_description_srednje">Zagrevanje mozgica</string>
     <string name="mode_description_tesko">...okej, ti mora da si streber...</string>
     <string name="mode_title_sport">Sport</string>
-    <string name="mode_title_opsta_informisanost">Opsta Informisanost</string>
-    <string name="mode_title_muzika">Muzika</string>
-    <string name="mode_title_film">Film</string>
-    <string name="mode_title_istorija">Istorija</string>
-    <string name="mode_title_geografija">Geografija</string>
+    <string name="mode_title_general_knowledge">Opsta Informisanost</string>
+    <string name="mode_title_music">Muzika</string>
+    <string name="mode_title_movie">Film</string>
+    <string name="mode_title_history">Istorija</string>
+    <string name="mode_title_geography">Geografija</string>
 
     <string name="error_username_login">Invalid username</string>
     <string name="title_quiz_mode_zen">Zen</string>
