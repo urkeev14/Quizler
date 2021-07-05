@@ -1,5 +1,6 @@
 package com.example.quizler.util.databinding
 
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -8,25 +9,36 @@ import com.example.quizler.util.extensions.getColorResId
 import com.example.quizler.util.extensions.getDrawableResIdByName
 import com.example.quizler.util.extensions.getStringByResIdName
 
-@BindingAdapter("resourceIdPrefix", "resourceIdPostfix")
-fun TextView.textFromStringResourceIdName(resIdPrefix: String, resIdPostfix: String) {
-    val title = this.getStringByResIdName("$resIdPrefix$resIdPostfix")
-    this.setText(title)
+@BindingAdapter("textFromResName")
+fun TextView.textFromStringResourceIdName(value: String) {
+    try {
+        val title = this.getStringByResIdName(value)
+        this.setText(title)
+    } catch (e: Exception) {
+        Log.e("ADAPTER ERROR", "textFromResName: No resource found with name $value")
+    }
 }
 
 /**
  * Sets a drawable source to [ImageView] based on [resourceName]
  */
-@BindingAdapter(value = ["srcPrefix", "srcSufix"], requireAll = true)
-fun ImageView.setSource(prefix: String, sufix: String) {
-    val modeLogo = this.getDrawableResIdByName("$prefix$sufix")
-    this.setImageDrawable(modeLogo)
+@BindingAdapter("drawableFromResName")
+fun ImageView.setSource(resourceName: String) {
+    try {
+        val modeLogo = this.getDrawableResIdByName(resourceName)
+        this.setImageDrawable(modeLogo)
+    } catch (e: Exception) {
+        Log.e("ADAPTER ERROR", "drawableFromResName: No resource found with name $resourceName")
+    }
 }
 
-@BindingAdapter("colorResIdName")
+@BindingAdapter("backgroundFromColorRes")
 fun ImageView.backgroundFromColorRes(value: String) {
-    val itemNameCapitalized = value.capitalizeAndJoin()
-    val modeBackgroundColor = this.getColorResId("color$itemNameCapitalized")
-    this.setBackgroundResource(modeBackgroundColor)
-    this.refreshDrawableState()
+    try {
+        val modeBackgroundColor = this.getColorResId(value)
+        this.setBackgroundResource(modeBackgroundColor)
+        this.refreshDrawableState()
+    } catch (e: Exception) {
+        Log.e("ADAPTER ERROR", "setSource: No resource found with name $value")
+    }
 }
