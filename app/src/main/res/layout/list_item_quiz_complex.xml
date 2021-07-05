@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.example.quizler.domain.model.QuizModeItem" />
+            type="com.example.quizler.domain.model.QuizMode" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -23,22 +23,19 @@
 
             <ImageView
                 android:id="@+id/ivModeLogo"
-                app:colorResIdName="@{item.name}"
                 android:layout_width="200dp"
+                android:padding="@dimen/normal_150"
                 android:layout_height="match_parent"
+                app:backgroundFromColorRes="@{item.modeIconBackgroundColor}"
+                app:drawableFromResName="@{item.modeIconSrc}"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcPrefix="@{`ic_mode_`}"
-                app:srcSufix="@{item.name}"
-                tools:background="@color/colorZen"
-                tools:backgroundTint="@color/colorZen"
                 tools:src="@drawable/ic_mode_zen" />
 
             <TextView
                 android:id="@+id/tvTitle"
-                resourceIdPostfix="@{item.name}"
-                resourceIdPrefix="@{`mode_title_`}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/small_125"
@@ -48,12 +45,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivModeLogo"
                 app:layout_constraintTop_toTopOf="parent"
+                app:textFromResName="@{item.titleResName}"
                 tools:text="Marathon" />
 
             <TextView
                 android:id="@+id/tvDescription"
-                resourceIdPostfix="@{item.name}"
-                resourceIdPrefix="@{`mode_description_`}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/small_125"
@@ -65,6 +61,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivModeLogo"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:textFromResName="@{item.descriptionResName}"
                 tools:text="@tools:sample/lorem/random" />
 
             <ImageView

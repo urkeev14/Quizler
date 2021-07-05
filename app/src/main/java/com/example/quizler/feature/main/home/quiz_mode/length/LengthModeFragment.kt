@@ -9,9 +9,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
+import com.example.quizler.databinding.DifficultyModeFragmentBinding
 import com.example.quizler.databinding.LengthModeFragmentBinding
+import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
+import com.example.quizler.feature.main.home.quiz_mode.difficulty.DifficultyModeViewModel
+import com.example.quizler.util.State
+import com.example.quizler.util.extensions.snack
+import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,14 +33,36 @@ class LengthModeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = LengthModeFragmentBinding.inflate(inflater, container, false)
-        initRecyclerView()
+        observeData()
         return binding.root
     }
 
-    private fun initRecyclerView() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.recyclerView.adapter = QuizItemComplexAdapter()
-        binding.recyclerView.addItemDecoration(QuizItemComplexItemDecorator())
+    private fun observeData() {
+        viewModel.data.observe(viewLifecycleOwner, { state ->
+            when (state) {
+                is State.Loading -> binding.progressBar.visibleOrGone(true)
+                is State.Success -> handleSuccess(state.data)
+                is State.Error -> handleFailure(state.data, state.messageResId)
+            }
+        })
+    }
+
+    private fun handleSuccess(data: List<QuizMode>?) {
+        populateRecyclerView(data)
+    }
+
+
+    private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
+        populateRecyclerView(data)
+        requireView().snack(messageResId)
+    }
+
+    private fun populateRecyclerView(data: List<QuizMode>?) {
+        with(binding.recyclerView) {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = QuizItemComplexAdapter(data ?: emptyList())
+            addItemDecoration(QuizItemComplexItemDecorator())
+        }
     }
 
     override fun onDestroyView() {

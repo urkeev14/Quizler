@@ -5,28 +5,65 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.quizler.R
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.quizler.databinding.DifficultyModeFragmentBinding
+import com.example.quizler.domain.model.QuizMode
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
+import com.example.quizler.util.State
+import com.example.quizler.util.extensions.snack
+import com.example.quizler.util.extensions.visibleOrGone
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DifficultyModeFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = DifficultyModeFragment()
-    }
-
-    private lateinit var viewModel: DifficultyModeViewModel
+    private val viewModel: DifficultyModeViewModel by viewModels()
+    private var _binding: DifficultyModeFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.difficulty_mode_fragment, container, false)
+        _binding = DifficultyModeFragmentBinding.inflate(inflater, container, false)
+        observeData()
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DifficultyModeViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun observeData() {
+        viewModel.data.observe(viewLifecycleOwner, { state ->
+            when (state) {
+                is State.Loading -> binding.progressBar.visibleOrGone(true)
+                is State.Success -> handleSuccess(state.data)
+                is State.Error -> handleFailure(state.data, state.messageResId)
+            }
+        })
+    }
+
+    private fun handleSuccess(data: List<QuizMode>?) {
+        populateRecyclerView(data)
+    }
+
+
+    private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
+        populateRecyclerView(data)
+        requireView().snack(messageResId)
+    }
+
+    private fun populateRecyclerView(data: List<QuizMode>?) {
+        with(binding.recyclerView) {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = QuizItemComplexAdapter(data ?: emptyList())
+            addItemDecoration(QuizItemComplexItemDecorator())
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
     }
 }
