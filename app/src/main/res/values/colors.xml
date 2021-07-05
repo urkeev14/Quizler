@@ -16,20 +16,20 @@
 
     <!-- Difficulty mode colors-->
     <color name="colorEasy">#a5d6a7</color>
-    <color name="colorMedium">#ffcc80</color>
+    <color name="colorAverage">#ffcc80</color>
     <color name="colorHard">#e0827e</color>
 
     <!-- Length mode colors-->
     <color name="colorZen">#fce0a2</color>
-    <color name="colorTest">#c7ede6</color>
-    <color name="colorMaraton">#E0827E</color>
+    <color name="colorExam">#c7ede6</color>
+    <color name="colorMarathon">#E0827E</color>
 
     <!-- Category mode colors-->
-    <color name="colorGeografija">#A5D6A7</color>
-    <color name="colorIstorija">#D4AF37</color>
-    <color name="colorFilm">#E0827E</color>
-    <color name="colorMuzika">#FFF59D</color>
-    <color name="colorOpstaInformisanost">#7EB7D9</color>
+    <color name="colorGeography">#A5D6A7</color>
+    <color name="colorHistory">#D4AF37</color>
+    <color name="colorMovie">#E0827E</color>
+    <color name="colorMusic">#FFF59D</color>
+    <color name="colorGeneralKnowledge">#7EB7D9</color>
     <color name="colorSport">#DD9DFF</color>
 
     <color name="colorBackground">#f1ebe3</color>
