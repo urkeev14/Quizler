@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.quizler.R
 import com.example.quizler.databinding.DifficultyModeFragmentBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
@@ -61,7 +62,7 @@ class DifficultyModeFragment : Fragment() {
         with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = QuizItemComplexAdapter(data ?: emptyList())
-            addItemDecoration(QuizItemComplexItemDecorator())
+            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_small))
         }
     }
 
