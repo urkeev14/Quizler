@@ -4,29 +4,40 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizler.R
+import com.example.quizler.databinding.FragmentNewQuestionBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewQuestionFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = NewQuestionFragment()
-    }
-
-    private lateinit var viewModel: NewQuestionViewModel
+    private val viewModel by viewModels<NewQuestionViewModel>()
+    private var _binding: FragmentNewQuestionBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_new_question, container, false)
+        _binding = FragmentNewQuestionBinding.inflate(inflater, container, false)
+
+        val items = listOf("Opsta informisanost", "Sport", "Muzika", "Film", "Istorija", "Geografija").sortedBy { it.first() }
+        val adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, items)
+        binding.dropdownCategory.setAdapter(adapter)
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(NewQuestionViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
     }
+
 }
