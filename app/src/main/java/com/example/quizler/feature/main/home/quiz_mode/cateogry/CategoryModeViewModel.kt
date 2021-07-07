@@ -9,9 +9,9 @@ import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.usecase.GetQuizModeUseCase
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class CategoryModeViewModel
