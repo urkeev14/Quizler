@@ -38,7 +38,7 @@ class LengthModeFragment : Fragment() {
             viewLifecycleOwner,
             { state ->
                 when (state) {
-                    is State.Loading -> binding.progressBar.visibleOrGone(true)
+                    is State.Loading -> showProgressBar(false)
                     is State.Success -> handleSuccess(state.data)
                     is State.Error -> handleFailure(state.data, state.messageResId)
                 }
@@ -47,10 +47,12 @@ class LengthModeFragment : Fragment() {
     }
 
     private fun handleSuccess(data: List<QuizMode>?) {
+        showProgressBar(false)
         populateRecyclerView(data)
     }
 
     private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
+        showProgressBar(false)
         populateRecyclerView(data)
         requireView().snack(messageResId)
     }
@@ -61,6 +63,10 @@ class LengthModeFragment : Fragment() {
             adapter = QuizItemComplexAdapter(data ?: emptyList())
             addItemDecoration(QuizItemComplexItemDecorator())
         }
+    }
+
+    private fun showProgressBar(isVisible: Boolean) {
+        binding.progressBar.visibleOrGone(isVisible)
     }
 
     override fun onDestroyView() {
