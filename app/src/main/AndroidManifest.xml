@@ -14,14 +14,14 @@
         android:theme="@style/Theme.Quizler"
         android:usesCleartextTraffic="true">
         <activity android:name=".feature.onboarding.OnboardingActivity">
-
-        </activity>
-        <activity android:name=".feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".feature.main.MainActivity">
+
         </activity>
 
         <meta-data

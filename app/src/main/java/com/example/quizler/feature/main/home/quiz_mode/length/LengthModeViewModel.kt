@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.quizler.di.LengthQuizModeListState
+import com.example.quizler.di.viewmodel.LengthQuizModeListState
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.usecase.GetQuizModeUseCase
 import com.example.quizler.util.State

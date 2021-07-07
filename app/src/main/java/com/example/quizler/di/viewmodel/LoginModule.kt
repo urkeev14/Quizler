@@ -1,4 +1,4 @@
-package com.example.quizler.di.feature.login
+package com.example.quizler.di.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.example.quizler.domain.data.local.LocalRepository
@@ -18,17 +18,16 @@ import dagger.hilt.android.components.ViewModelComponent
 class LoginModule {
 
     @Provides
+    fun provideLoginUseCase(
+        localRepository: LocalRepository,
+        remoteRepository: RemoteRepository
+    ) = LoginUseCase(localRepository, remoteRepository)
+
+    @Provides
     fun provideLoginBindingModel() = MutableLiveData(LoginBindingModel())
 
     @Provides
-    fun provideLoginUseCase(localRepository: LocalRepository, remoteRepository: RemoteRepository): LoginUseCase {
-        return LoginUseCase(localRepository, remoteRepository)
-    }
-
-    @Provides
-    fun provideLoginSingleLiveEvent(): SingleLiveEvent<State<Boolean>> {
-        return SingleLiveEvent()
-    }
+    fun provideLoginSingleLiveEvent(): SingleLiveEvent<State<Boolean>> = SingleLiveEvent()
 
     @Provides
     fun provideLoginForm() = LoginForm()
