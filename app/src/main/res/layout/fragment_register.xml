@@ -58,6 +58,7 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textNoSuggestions"
                 android:text="@={viewModel.form.username}"
                 app:onTextChange="@{viewModel::onUsernameChanged}" />
 
