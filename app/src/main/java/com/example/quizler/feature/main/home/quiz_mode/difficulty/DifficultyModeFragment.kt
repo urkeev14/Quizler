@@ -24,11 +24,7 @@ class DifficultyModeFragment : Fragment() {
     private var _binding: DifficultyModeFragmentBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DifficultyModeFragmentBinding.inflate(inflater, container, false)
         observeData()
         return binding.root
@@ -62,7 +58,7 @@ class DifficultyModeFragment : Fragment() {
         with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = QuizItemComplexAdapter(data ?: emptyList())
-            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_small))
+            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_small)))
         }
     }
 

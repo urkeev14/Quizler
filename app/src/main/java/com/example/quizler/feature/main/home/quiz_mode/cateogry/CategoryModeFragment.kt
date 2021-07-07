@@ -23,11 +23,7 @@ class CategoryModeFragment : Fragment() {
     private var _binding: CategoryModeFragmentBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = CategoryModeFragmentBinding.inflate(inflater, container, false)
         observeData()
         return binding.root
