@@ -52,8 +52,54 @@ class QuizModeMockDataProvider {
         )
     )
 
+    private val listCategory: List<QuizModeDto> = mutableListOf(
+        QuizModeDto(
+            id = "111",
+            name = "geography",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        ),
+        QuizModeDto(
+            id = "111",
+            name = "history",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        ),
+        QuizModeDto(
+            id = "111",
+            name = "movie",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        ),
+        QuizModeDto(
+            id = "111",
+            name = "music",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        ),
+        QuizModeDto(
+            id = "111",
+            name = "general knowledge",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        ),
+        QuizModeDto(
+            id = "111",
+            name = "sport",
+            timePerQuestion = 30,
+            numberOfHints = 3,
+            numberOfQuestions = 20
+        )
+    )
+
     val mockedModes = mapOf(
         "tezina" to listDifficulty,
-        "duzina" to listLength
+        "duzina" to listLength,
+        "category" to listCategory
     )
 }
