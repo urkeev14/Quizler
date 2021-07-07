@@ -1,6 +1,7 @@
 package com.example.quizler.util.databinding
 
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -24,7 +25,7 @@ fun TextView.textFromStringResourceIdName(value: String) {
 @BindingAdapter("drawableFromResName")
 fun ImageView.setSource(resourceName: String) {
     try {
-        val modeLogo = this.getDrawableResIdByName(resourceName)
+        val modeLogo = this.getDrawableResIdByName(resourceName.lowercase().replace(" ", "_"))
         this.setImageDrawable(modeLogo)
     } catch (e: Exception) {
         Log.e("ADAPTER ERROR", "drawableFromResName: No resource found with name $resourceName")
@@ -32,7 +33,7 @@ fun ImageView.setSource(resourceName: String) {
 }
 
 @BindingAdapter("backgroundFromColorRes")
-fun ImageView.backgroundFromColorRes(value: String) {
+fun View.backgroundFromColorRes(value: String) {
     try {
         val modeBackgroundColor = this.getColorResId(value)
         this.setBackgroundResource(modeBackgroundColor)
