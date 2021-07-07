@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.quizler.R
-import com.example.quizler.databinding.LoginFragmentBinding
+import com.example.quizler.databinding.FragmentLoginBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.snack
@@ -19,15 +19,11 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    private lateinit var binding: LoginFragmentBinding
+    private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = LoginFragmentBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
         initOnClickListeners()

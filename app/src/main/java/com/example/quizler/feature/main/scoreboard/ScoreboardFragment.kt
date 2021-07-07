@@ -21,7 +21,7 @@ class ScoreboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.scoreboard_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_scoreboard, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

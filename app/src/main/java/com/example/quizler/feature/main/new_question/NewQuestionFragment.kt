@@ -21,7 +21,7 @@ class NewQuestionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.new_question_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_new_question, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

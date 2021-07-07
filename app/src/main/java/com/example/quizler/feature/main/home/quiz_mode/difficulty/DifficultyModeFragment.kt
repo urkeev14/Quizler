@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
-import com.example.quizler.databinding.DifficultyModeFragmentBinding
+import com.example.quizler.databinding.FragmentDifficultyModeBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
@@ -21,11 +21,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class DifficultyModeFragment : Fragment() {
 
     private val viewModel: DifficultyModeViewModel by viewModels()
-    private var _binding: DifficultyModeFragmentBinding? = null
+    private var _binding: FragmentDifficultyModeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = DifficultyModeFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentDifficultyModeBinding.inflate(inflater, container, false)
         observeData()
         return binding.root
     }

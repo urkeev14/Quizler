@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.quizler.databinding.CategoryModeFragmentBinding
+import com.example.quizler.databinding.FragmentCategoryModeBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleItemDecorator
@@ -20,11 +20,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class CategoryModeFragment : Fragment() {
 
     private val viewModel: CategoryModeViewModel by viewModels()
-    private var _binding: CategoryModeFragmentBinding? = null
+    private var _binding: FragmentCategoryModeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = CategoryModeFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentCategoryModeBinding.inflate(inflater, container, false)
         observeData()
         return binding.root
     }

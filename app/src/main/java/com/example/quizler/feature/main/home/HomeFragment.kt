@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.example.quizler.R
-import com.example.quizler.databinding.HomeFragmentBinding
+import com.example.quizler.databinding.FragmentHomeBinding
 import com.example.quizler.util.extensions.onTabSelected
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private var _binding: HomeFragmentBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
     private val navHostFragment by lazy { childFragmentManager.findFragmentById(R.id.nav_host_home) as NavHostFragment }
@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = HomeFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         initNavigation()
 

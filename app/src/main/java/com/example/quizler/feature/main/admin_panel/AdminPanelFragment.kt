@@ -21,7 +21,7 @@ class AdminPanelFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.admin_panel_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_admin_panel, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

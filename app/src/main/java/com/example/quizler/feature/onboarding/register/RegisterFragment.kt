@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.quizler.R
-import com.example.quizler.databinding.RegisterFragmentBinding
+import com.example.quizler.databinding.FragmentRegisterBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.snack
@@ -20,15 +20,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private val viewModel: RegisterViewModel by viewModels()
-    private var _binding: RegisterFragmentBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = RegisterFragmentBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
         initBinding()
         observeRegisterForm()

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
-import com.example.quizler.databinding.LengthModeFragmentBinding
+import com.example.quizler.databinding.FragmentLengthModeBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
@@ -21,11 +21,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class LengthModeFragment : Fragment() {
 
     private val viewModel: LengthModeViewModel by viewModels()
-    private var _binding: LengthModeFragmentBinding? = null
+    private var _binding: FragmentLengthModeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = LengthModeFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentLengthModeBinding.inflate(inflater, container, false)
         observeData()
         return binding.root
     }
@@ -35,7 +35,7 @@ class LengthModeFragment : Fragment() {
             viewLifecycleOwner,
             { state ->
                 when (state) {
-                    is State.Loading -> showProgressBar(false)
+                    is State.Loading -> showProgressBar(true)
                     is State.Success -> handleSuccess(state.data)
                     is State.Error -> handleFailure(state.data, state.messageResId)
                 }

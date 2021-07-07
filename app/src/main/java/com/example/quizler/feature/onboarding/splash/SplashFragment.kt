@@ -8,19 +8,15 @@ import android.view.ViewGroup
 import androidx.core.animation.doOnEnd
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.quizler.databinding.SplashFragmentBinding
+import com.example.quizler.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
 
-    private lateinit var binding: SplashFragmentBinding
+    private lateinit var binding: FragmentSplashBinding
     private lateinit var viewModel: SplashViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = SplashFragmentBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentSplashBinding.inflate(inflater, container, false)
         return binding.root
     }
 

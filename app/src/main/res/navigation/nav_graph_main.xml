@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.quizler.feature.main.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment">
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
@@ -18,22 +18,22 @@
         android:id="@+id/newQuestionFragment"
         android:name="com.example.quizler.feature.main.new_question.NewQuestionFragment"
         android:label="new_question_fragment"
-        tools:layout="@layout/new_question_fragment" />
+        tools:layout="@layout/fragment_new_question" />
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.quizler.feature.main.quiz.QuizFragment"
         android:label="quiz_fragment"
-        tools:layout="@layout/quiz_fragment" />
+        tools:layout="@layout/fragment_quiz" />
     <fragment
         android:id="@+id/adminPanelFragment"
         android:name="com.example.quizler.feature.main.admin_panel.AdminPanelFragment"
         android:label="admin_panel_fragment"
-        tools:layout="@layout/admin_panel_fragment" />
+        tools:layout="@layout/fragment_admin_panel" />
     <fragment
         android:id="@+id/scoreboardFragment"
         android:name="com.example.quizler.feature.main.scoreboard.ScoreboardFragment"
         android:label="scoreboard_fragment"
-        tools:layout="@layout/scoreboard_fragment" />
+        tools:layout="@layout/fragment_scoreboard" />
     <action
         android:id="@+id/action_global_adminPanelFragment"
         app:destination="@id/adminPanelFragment" />
@@ -50,7 +50,7 @@
         android:id="@+id/statisticsFragment"
         android:name="com.example.quizler.feature.main.statistics.StatisticsFragment"
         android:label="statistics_fragment"
-        tools:layout="@layout/statistics_fragment" />
+        tools:layout="@layout/fragment_statistics" />
     <action
         android:id="@+id/action_global_statisticsFragment"
         app:destination="@id/statisticsFragment" />
@@ -58,5 +58,5 @@
         android:id="@+id/profileFragment"
         android:name="com.example.quizler.feature.main.profile.ProfileFragment"
         android:label="profile_fragment"
-        tools:layout="@layout/profile_fragment" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>
