@@ -18,6 +18,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
+        <!-- Bottom navigation theming-->
+        <item name="bottomNavigationStyle">@style/Widget.Quizler.BottomNavigationView</item>
+
         <!-- Font -->
         <item name="fontFamily">@font/gloria_hallelujah</item>
         <item name="android:fontFamily">@font/gloria_hallelujah</item>
@@ -41,6 +44,13 @@
 
     <style name="TextAppearance.Quizler.ListItemQuizComplexTitle" parent="TextAppearance.AppCompat">
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Widget.Quizler.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:backgroundTint">@color/primaryLightColor</item>
+        <item name="backgroundTint">@color/primaryLightColor</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
     </style>
 
 </resources>
