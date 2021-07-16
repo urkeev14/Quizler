@@ -31,7 +31,7 @@ class NewQuestionViewModel
     }
 
     private fun fetchData() = viewModelScope.launch(IO) {
-        _categories.postValue(useCase.getModes("categories"))
+        _categories.postValue(useCase.getCategoryModes())
     }
 
     override fun onSave() {

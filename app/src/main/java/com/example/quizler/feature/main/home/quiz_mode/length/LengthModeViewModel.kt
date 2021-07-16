@@ -29,10 +29,6 @@ class LengthModeViewModel
 
     private fun getModes() = viewModelScope.launch(IO) {
         _data.postValue(State.Loading())
-        _data.postValue(useCase.getModes(LENGTH))
-    }
-
-    companion object {
-        private const val LENGTH = "length"
+        _data.postValue(useCase.getLengthModes())
     }
 }
