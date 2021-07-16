@@ -11,9 +11,9 @@ import com.example.quizler.R
 import com.example.quizler.databinding.FragmentLoginBinding
 import com.example.quizler.feature.main.MainActivity
 import com.example.quizler.util.State
+import com.example.quizler.util.extensions.goneUnless
 import com.example.quizler.util.extensions.snack
 import com.example.quizler.util.extensions.validated
-import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,7 +62,7 @@ class LoginFragment : Fragment() {
             viewLifecycleOwner,
             { result ->
                 when (result) {
-                    is State.Loading -> binding.progressBar.visibleOrGone(true)
+                    is State.Loading -> binding.progressBar.goneUnless(true)
                     is State.Success -> gotoMainActivity()
                     is State.Error -> showError()
                 }
@@ -71,12 +71,12 @@ class LoginFragment : Fragment() {
     }
 
     private fun showError() {
-        binding.progressBar.visibleOrGone(false)
+        binding.progressBar.goneUnless(false)
         requireView().snack(R.string.error_login)
     }
 
     private fun gotoMainActivity() {
-        binding.progressBar.visibleOrGone(false)
+        binding.progressBar.goneUnless(false)
         startActivity(MainActivity.newInstance(requireContext()))
     }
 

@@ -12,5 +12,4 @@ object HomeModule {
 
     @Provides
     fun provideQuizModeScreenDirectionResolver() = QuizModeScreenDirectionResolver()
-
 }

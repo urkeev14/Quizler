@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.quizler.R
 import com.example.quizler.databinding.FragmentCategoryModeBinding
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleItemDecorator
 import com.example.quizler.util.State
+import com.example.quizler.util.extensions.goneUnless
 import com.example.quizler.util.extensions.snack
-import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,13 +55,13 @@ class CategoryModeFragment : Fragment() {
     }
 
     private fun showProgressBar(isVisible: Boolean) {
-        binding.progressBar.visibleOrGone(isVisible)
+        binding.progressBar.goneUnless(isVisible)
     }
 
     private fun populateRecyclerView(data: List<QuizMode>?) {
         with(binding.recyclerView) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            addItemDecoration(QuizItemSimpleItemDecorator(2, 16, true))
+            addItemDecoration(QuizItemSimpleItemDecorator(2, resources.getInteger(R.integer.decorator_margin_large), true))
             adapter = QuizItemSimpleAdapter(data ?: emptyList())
         }
     }

@@ -1,30 +1,43 @@
 <resources>
     <string name="app_name">Quizler</string>
+
+
+    <!-- Error -->
+    <string name="error_username_register">Korisnicko ime mora sadrzati bar 5 karaktera</string>
+    <string name="error_username_exist">Korisnicko ime vec postoji.</string>
+    <string name="error_email_invalid">Nevalidan email</string>
+    <string name="error_email_exist">Korisnik sa ovom adresom vec postoji.</string>
+    <string name="error_password">Lozinka mora sadrzati bar 8 karaktera, od kojih 1 veliko slovo, 1 malo slovo, 1 broj i 1 spec. karakter</string>
+    <string name="error_server_down">Greska na serveru. Molimo pokusajte kasnije</string>
+    <string name="error_unexpected">Doslo je do nepoznate greske.</string>
+    <string name="error_unknow">Unknown error occured.</string>
+
+    <!-- Register-->
     <string name="username">korisnicko ime</string>
     <string name="email">email</string>
     <string name="password">lozinka</string>
     <string name="register">Registruj se</string>
     <string name="go_to_login">Idi na prijavu</string>
-    <string name="error_username_register">Korisnicko ime mora sadrzati bar 5 karaktera</string>
-    <string name="error_email_invalid">Nevalidan email</string>
-    <string name="error_password">Lozinka mora sadrzati bar 8 karaktera, od kojih 1 veliko slovo, 1 malo slovo, 1 broj i 1 spec. karakter</string>
     <string name="or">ili</string>
-    <string name="error_email_exist">Korisnik sa ovom adresom vec postoji.</string>
-    <string name="error_unexpected">Doslo je do nepoznate greske.</string>
-    <string name="error_username_exist">Korisnicko ime vec postoji.</string>
-    <string name="error_server_down">Greska na serveru. Molimo pokusajte kasnije</string>
-    <string name="error_unknow">Unknown error occured.</string>
+
+    <!-- Login -->
     <string name="login">Prijava</string>
     <string name="go_to_register">Idi na registraciju</string>
     <string name="error_login">Pogresno uneti kredencijali</string>
+    <string name="error_username_login">Invalid username</string>
+
+    <!-- Bottom Navigation-->
     <string name="home">Pocetna</string>
     <string name="scoreboard">Tabela</string>
     <string name="new_question">Novo pitanje</string>
     <string name="statistics">Statistika</string>
     <string name="profile">Profil</string>
+
     <string name="tab_length">Duzina</string>
     <string name="tab_category">Kategorija</string>
     <string name="tab_difficulty">Tezina</string>
+
+    <!-- Mode -->
     <string name="mode_title_zen">Zen</string>
     <string name="mode_title_exam">Test</string>
     <string name="mode_title_marathon">Maraton</string>
@@ -44,6 +57,15 @@
     <string name="mode_title_history">Istorija</string>
     <string name="mode_title_geography">Geografija</string>
 
-    <string name="error_username_login">Invalid username</string>
-    <string name="title_quiz_mode_zen">Zen</string>
+    <!-- New question -->
+    <string name="question">Question</string>
+    <string name="correct_answer_is">Tacan odgovor je:</string>
+    <string name="answer_a">A)</string>
+    <string name="answer_b">B)</string>
+    <string name="answer_c">C)</string>
+    <string name="answer_d">D)</string>
+    <string name="save">Sacuvaj</string>
+    <string name="reset_fields">Resetuj polja</string>
+
+
 </resources>

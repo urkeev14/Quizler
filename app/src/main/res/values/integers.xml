@@ -2,4 +2,5 @@
 <resources>
     <integer name="decorator_margin_small">8</integer>
     <integer name="decorator_margin_normal">16</integer>
+    <integer name="decorator_margin_large">32</integer>
 </resources>

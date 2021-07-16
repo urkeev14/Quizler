@@ -13,8 +13,8 @@ import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
 import com.example.quizler.util.State
+import com.example.quizler.util.extensions.goneUnless
 import com.example.quizler.util.extensions.snack
-import com.example.quizler.util.extensions.visibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -58,12 +58,12 @@ class LengthModeFragment : Fragment() {
         with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = QuizItemComplexAdapter(data ?: emptyList())
-            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_small)))
+            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_large)))
         }
     }
 
     private fun showProgressBar(isVisible: Boolean) {
-        binding.progressBar.visibleOrGone(isVisible)
+        binding.progressBar.goneUnless(isVisible)
     }
 
     override fun onDestroyView() {
