@@ -29,6 +29,10 @@ class CategoryModeViewModel
 
     private fun getModes() = viewModelScope.launch(Dispatchers.IO) {
         _data.postValue(State.Loading())
-        _data.postValue(useCase.getModes("category"))
+        _data.postValue(useCase.getModes(CATEGORY))
+    }
+
+    companion object {
+        private const val CATEGORY = "categories"
     }
 }

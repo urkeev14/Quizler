@@ -29,6 +29,10 @@ class DifficultyModeViewModel
 
     private fun getModes() = viewModelScope.launch(IO) {
         _data.postValue(State.Loading())
-        _data.postValue(useCase.getModes("tezina"))
+        _data.postValue(useCase.getModes(DIFFICULTY))
+    }
+
+    companion object{
+        private const val DIFFICULTY = "difficulty"
     }
 }
