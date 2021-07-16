@@ -15,9 +15,9 @@ class QuizModeMapper : DataMapper<QuizModeDto, QuizMode> {
         return QuizMode(
             id = input.id,
             name = input.name,
-            titleResName = TITLE_PREFIX.plus(input.name.replace(" ", "_")),
-            descriptionResName = DESCRIPTION_PREFIX.plus(input.name.replace(" ", "_")),
-            modeIconSrc = ICON_PREFIX.plus(input.name),
+            titleResName = TITLE_PREFIX.plus(input.name.lowercase().replace(" ", "_")),
+            descriptionResName = DESCRIPTION_PREFIX.plus(input.name.lowercase().replace(" ", "_")),
+            modeIconSrc = ICON_PREFIX.plus(input.name.lowercase()),
             modeIconBackgroundColor = BACKGROUND_COLOR_PREFIX.plus(input.name.capitalizeAndJoin()),
             numberOfQuestions = input.numberOfQuestions,
             numberOfHints = input.numberOfHints,
