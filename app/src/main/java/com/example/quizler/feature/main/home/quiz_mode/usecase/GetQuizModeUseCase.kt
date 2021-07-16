@@ -35,7 +35,7 @@ class GetQuizModeUseCase(
         return State.Success(data.map { mapper.map(it) })
     }
 
-    companion object{
+    companion object {
         private const val CATEGORIES = "categories"
         private const val DIFFICULTY = "difficulty"
         private const val LENGTH = "length"
