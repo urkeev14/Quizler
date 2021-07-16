@@ -25,7 +25,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <!-- TextInputLayout default styling -->
+    <!-- TextInputLayout styling -->
     <style name="Widget.Quizler.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginHorizontal" tools:targetApi="o">@dimen/normal_100</item>
         <item name="android:paddingBottom">@dimen/small_100</item>

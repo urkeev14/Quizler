@@ -21,6 +21,10 @@
     <dimen name="large_175">56dp</dimen>
     <dimen name="large_200">64dp</dimen>
 
+    <!-- Images -->
     <dimen name="small_img_person">120dp</dimen>
+
+    <!-- Button -->
+    <dimen name="big_button_height">60dp</dimen>
 
 </resources>
