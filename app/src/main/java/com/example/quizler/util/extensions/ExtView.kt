@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar
  * if parameter [isVisible] equals true. Otherwise, sets [View]'s visibility
  * to [View.GONE]
  */
-fun View.visibleOrGone(isVisible: Boolean) {
+fun View.goneUnless(isVisible: Boolean) {
     this.visibility = if (isVisible) View.VISIBLE else View.GONE
 }
 
@@ -22,7 +22,7 @@ fun View.visibleOrGone(isVisible: Boolean) {
  * if parameter [isVisible] equals true. Otherwise, sets [View]'s visibility
  * to [View.INVISIBLE]
  */
-fun View.visibleOrInvisible(isVisible: Boolean) {
+fun View.invisibleUnless(isVisible: Boolean) {
     this.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
 }
 
