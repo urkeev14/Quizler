@@ -3,10 +3,11 @@ package com.example.quizler.feature.main.home.quiz_mode.difficulty
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.quizler.di.viewmodel.DifficultyQuizModeListState
 import com.example.quizler.domain.model.QuizMode
-import com.example.quizler.feature.main.home.quiz_mode.usecase.GetQuizModeUseCase
+import com.example.quizler.feature.main.home.quiz_mode.usecase.GetModesDifficultyUseCase
 import com.example.quizler.util.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
@@ -16,19 +17,9 @@ import javax.inject.Inject
 @HiltViewModel
 class DifficultyModeViewModel
 @Inject constructor(
-    @DifficultyQuizModeListState
-    private val _data: MutableLiveData<State<List<QuizMode>>>,
-    private val useCase: GetQuizModeUseCase
+    private val useCase: GetModesDifficultyUseCase
 ) : ViewModel() {
 
-    val data = _data as LiveData<State<List<QuizMode>>>
+    fun getData() = useCase.fetch().asLiveData()
 
-    init {
-        getModes()
-    }
-
-    private fun getModes() = viewModelScope.launch(IO) {
-        _data.postValue(State.Loading())
-        _data.postValue(useCase.getDifficultyModes())
-    }
 }

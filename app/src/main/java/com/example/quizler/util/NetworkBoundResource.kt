@@ -18,8 +18,8 @@ import kotlinx.coroutines.flow.map
  */
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,
-    crossinline fetch: suspend () -> RequestType,
-    crossinline saveFetchResult: suspend (RequestType) -> Unit,
+    crossinline fetchData: suspend () -> RequestType,
+    crossinline cache: suspend (RequestType) -> Unit,
     crossinline shouldFetch: (ResultType) -> Boolean = { true }
 ) = flow {
 
@@ -29,7 +29,8 @@ inline fun <ResultType, RequestType> networkBoundResource(
         emit(State.Loading(data))
 
         try {
-            saveFetchResult(fetch())
+            val data = fetchData()
+            cache(data)
             query().map { State.Success(it) }
         } catch (throwable: Throwable) {
             query().map { State.Error(throwable, it) }
