@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 class QuizItemComplexItemDecorator(
-    private val spacing: Int = 16,
+    private val spacing: Int = 16
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
