@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.quizler.R
 import com.example.quizler.databinding.FragmentLengthModeBinding
+import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleAdapter
+import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleItemDecorator
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
 import com.example.quizler.util.extensions.snack
@@ -31,39 +35,20 @@ class LengthModeFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.data.observe(
-            viewLifecycleOwner,
-            { state ->
-                when (state) {
-                    is State.Loading -> showProgressBar(true)
-                    is State.Success -> handleSuccess(state.data)
-                    is State.Error -> handleFailure(state.data, state.messageResId)
-                }
-            }
-        )
-    }
-
-    private fun handleSuccess(data: List<QuizMode>?) {
-        showProgressBar(false)
-        populateRecyclerView(data)
-    }
-
-    private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
-        showProgressBar(false)
-        populateRecyclerView(data)
-        requireView().snack(messageResId)
-    }
-
-    private fun populateRecyclerView(data: List<QuizMode>?) {
-        with(binding.recyclerView) {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = QuizItemComplexAdapter(data ?: emptyList())
-            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_large)))
+        viewModel.getData().observe(
+            viewLifecycleOwner
+        ) { state ->
+            populateRecyclerView(state.data)
+            binding.progressBar.goneUnless(state is State.Loading && state.data.isNullOrEmpty())
         }
     }
 
-    private fun showProgressBar(isVisible: Boolean) {
-        binding.progressBar.goneUnless(isVisible)
+    private fun populateRecyclerView(data: List<BaseQuizModeEntity>?) {
+        with(binding.recyclerView) {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            addItemDecoration(QuizItemComplexItemDecorator())
+            adapter = QuizItemComplexAdapter(data ?: emptyList())
+        }
     }
 
     override fun onDestroyView() {

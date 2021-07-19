@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.quizler.R
 import com.example.quizler.databinding.FragmentNewQuestionBinding
+import com.example.quizler.domain.data.local.entity.CategoryModeEntity
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
@@ -40,31 +41,18 @@ class NewQuestionFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.categories.observe(
+        viewModel.getCategories().observe(
             viewLifecycleOwner,
             { state ->
-                when (state) {
-                    is State.Error -> handleError(state)
-                    is State.Loading -> handleLoading()
-                    is State.Success -> handleSuccess(state)
-                }
+                populateDropdown(state.data)
+                binding.progressBar.goneUnless(state is State.Loading && state.data.isNullOrEmpty())
             }
         )
     }
 
-    private fun handleSuccess(state: State.Success<List<QuizMode>>) {
-        binding.progressBar.goneUnless(false)
-        val items = state.data!!.sortedBy { it.name }.map { it.name }
-        val adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, items)
+    private fun populateDropdown(list: List<CategoryModeEntity>?) {
+        val adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, list ?: emptyList())
         binding.dropdownCategory.setAdapter(adapter)
-    }
-
-    private fun handleLoading() {
-        binding.progressBar.goneUnless(true)
-    }
-
-    private fun handleError(state: State.Error<List<QuizMode>>) {
-        binding.progressBar.goneUnless(false)
     }
 
     override fun onDestroyView() {

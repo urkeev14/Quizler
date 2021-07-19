@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
 import com.example.quizler.databinding.FragmentDifficultyModeBinding
+import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
 import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
@@ -31,39 +32,21 @@ class DifficultyModeFragment : Fragment() {
     }
 
     private fun observeData() {
-        viewModel.data.observe(
+        viewModel.getData().observe(
             viewLifecycleOwner,
             { state ->
-                when (state) {
-                    is State.Loading -> showProgressBar(true)
-                    is State.Success -> handleSuccess(state.data)
-                    is State.Error -> handleFailure(state.data, state.messageResId)
-                }
+                populateRecyclerView(state.data)
+                binding.progressBar.goneUnless(state is State.Loading && state.data.isNullOrEmpty())
             }
         )
     }
 
-    private fun handleSuccess(data: List<QuizMode>?) {
-        showProgressBar(false)
-        populateRecyclerView(data)
-    }
-
-    private fun handleFailure(data: List<QuizMode>?, messageResId: Int?) {
-        showProgressBar(false)
-        populateRecyclerView(data)
-        requireView().snack(messageResId)
-    }
-
-    private fun populateRecyclerView(data: List<QuizMode>?) {
+    private fun populateRecyclerView(data: List<BaseQuizModeEntity>?) {
         with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = QuizItemComplexAdapter(data ?: emptyList())
-            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_large)))
+            addItemDecoration(QuizItemComplexItemDecorator(resources.getInteger(R.integer.decorator_margin_normal)))
         }
-    }
-
-    private fun showProgressBar(isVisible: Boolean) {
-        binding.progressBar.goneUnless(isVisible)
     }
 
     override fun onDestroyView() {
