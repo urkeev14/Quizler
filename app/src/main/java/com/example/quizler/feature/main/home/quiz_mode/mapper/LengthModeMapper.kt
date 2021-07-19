@@ -1,7 +1,7 @@
-package com.example.quizler.feature.main.home.quiz_mode
+package com.example.quizler.feature.main.home.quiz_mode.mapper
 
-import com.example.quizler.domain.model.QuizMode
-import com.example.quizler.domain.model.QuizModeDto
+import com.example.quizler.domain.data.local.entity.LengthModeEntity
+import com.example.quizler.domain.model.LengthModeDto
 import com.example.quizler.util.extensions.capitalizeAndJoin
 import com.example.quizler.util.mapper.DataMapper
 
@@ -10,9 +10,9 @@ private const val DESCRIPTION_PREFIX = "mode_description_"
 private const val ICON_PREFIX = "ic_mode_"
 private const val BACKGROUND_COLOR_PREFIX = "color"
 
-class QuizModeMapper : DataMapper<QuizModeDto, QuizMode> {
-    override fun map(input: QuizModeDto): QuizMode {
-        return QuizMode(
+class LengthModeMapper : DataMapper<LengthModeDto, LengthModeEntity> {
+    override fun map(input: LengthModeDto): LengthModeEntity {
+        return LengthModeEntity(
             id = input.id,
             name = input.name,
             titleResName = TITLE_PREFIX.plus(input.name.lowercase().replace(" ", "_")),
