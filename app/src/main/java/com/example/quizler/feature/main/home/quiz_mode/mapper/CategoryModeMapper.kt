@@ -12,7 +12,7 @@ private const val BACKGROUND_COLOR_PREFIX = "color"
 
 class CategoryModeMapper : DataMapper<CategoryModeDto, CategoryModeEntity> {
     override fun map(input: CategoryModeDto): CategoryModeEntity {
-        val a =  CategoryModeEntity(
+        val a = CategoryModeEntity(
             id = input.id,
             name = input.name,
             titleResName = TITLE_PREFIX.plus(input.name.lowercase().replace(" ", "_")),

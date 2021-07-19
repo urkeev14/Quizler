@@ -6,8 +6,6 @@ import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.model.DifficultyModeDto
 import com.example.quizler.feature.main.home.quiz_mode.mapper.DifficultyModeMapper
 import com.example.quizler.util.networkBoundResource
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 
 class GetModesDifficultyUseCase(
     private val remoteRepository: RemoteRepository,

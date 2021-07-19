@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizler.databinding.ListItemQuizComplexBinding
 import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
-import com.example.quizler.domain.model.QuizMode
 
 class QuizItemComplexAdapter(
     private val list: List<BaseQuizModeEntity>

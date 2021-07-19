@@ -7,18 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.quizler.R
 import com.example.quizler.databinding.FragmentLengthModeBinding
 import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
-import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
-import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleAdapter
-import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleItemDecorator
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
-import com.example.quizler.util.extensions.snack
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

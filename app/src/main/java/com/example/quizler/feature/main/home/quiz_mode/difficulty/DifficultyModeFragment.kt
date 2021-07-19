@@ -10,12 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizler.R
 import com.example.quizler.databinding.FragmentDifficultyModeBinding
 import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
-import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemComplexItemDecorator
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
-import com.example.quizler.util.extensions.snack
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,7 +1,6 @@
 package com.example.quizler.di.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.example.quizler.domain.data.local.QuizModeRepository
 import com.example.quizler.domain.data.local.UserDataStore
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.feature.onboarding.login.LoginBindingModel

@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import com.example.quizler.R
 import com.example.quizler.databinding.FragmentNewQuestionBinding
 import com.example.quizler.domain.data.local.entity.CategoryModeEntity
-import com.example.quizler.domain.model.QuizMode
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
 import dagger.hilt.android.AndroidEntryPoint

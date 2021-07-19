@@ -14,7 +14,6 @@ import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleAdapter
 import com.example.quizler.feature.main.home.quiz_mode.QuizItemSimpleItemDecorator
 import com.example.quizler.util.State
 import com.example.quizler.util.extensions.goneUnless
-import com.example.quizler.util.extensions.snack
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -13,5 +13,4 @@ class LengthModeViewModel
 ) : ViewModel() {
 
     fun getData() = useCase.fetch().asLiveData()
-
 }

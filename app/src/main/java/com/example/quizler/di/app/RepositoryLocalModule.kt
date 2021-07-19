@@ -30,9 +30,7 @@ object RepositoryLocalModule {
     @Provides
     fun provideLocalRepository(quizModeDatabase: QuizModeDatabase) = QuizModeRepository(quizModeDatabase)
 
-
     @Provides
     @Singleton
     fun provideUserDataStore(@ApplicationContext context: Context) = UserDataStore(context.userDataStore)
-
 }
