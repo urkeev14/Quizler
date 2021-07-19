@@ -2,11 +2,7 @@ package com.example.quizler.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-/**
- * Represents an item in [QuizItemComplexAdapter] class
- */
-// TODO: MAPIRAJ VREDNOSTI
-data class QuizModeDto(
+data class CategoryModeDto(
     @SerializedName("_id") val id: String,
     val name: String,
     val numberOfHints: Int = 3,
