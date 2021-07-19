@@ -13,5 +13,7 @@ class RemoteRepository(
     suspend fun register(body: RegisterRequestBody) = playerService.register(body)
     suspend fun login(body: LoginRequestBody) = playerService.login(body)
 
-    suspend fun getModes(modeName: String) = quizModeService.getModes(modeName)
+    suspend fun getCategoryModes() = quizModeService.getCategoryModes()
+    suspend fun getLengthModes() = quizModeService.getLengthModes()
+    suspend fun getDifficultyModes() = quizModeService.getDifficultyModes()
 }
