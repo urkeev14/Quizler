@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizler.databinding.ListItemQuizSimpleBinding
-import com.example.quizler.domain.model.QuizMode
+import com.example.quizler.domain.data.local.entity.BaseQuizModeEntity
 
 class QuizItemSimpleAdapter(
-    private val list: List<QuizMode>
+    private val list: List<BaseQuizModeEntity>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -24,7 +24,7 @@ class QuizItemSimpleAdapter(
     override fun getItemCount(): Int = list.size
 
     class QuizItemSimpleViewHolder(var binding: ListItemQuizSimpleBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: QuizMode) {
+        fun bind(item: BaseQuizModeEntity) {
             binding.item = item
         }
     }

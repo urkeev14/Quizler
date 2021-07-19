@@ -8,10 +8,11 @@
 
         <variable
             name="item"
-            type="com.example.quizler.domain.model.QuizMode" />
+            type="com.example.quizler.domain.data.local.entity.BaseQuizModeEntity" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        app:cardCornerRadius="@dimen/small_100"
         android:layout_width="130dp"
         android:layout_height="wrap_content">
 

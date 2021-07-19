@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.example.quizler.domain.model.QuizMode" />
+            type="com.example.quizler.domain.data.local.entity.BaseQuizModeEntity" />
     </data>
 
     <androidx.cardview.widget.CardView
