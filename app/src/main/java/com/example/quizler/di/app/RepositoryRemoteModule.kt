@@ -1,16 +1,12 @@
 package com.example.quizler.di.app
 
-import android.content.Context
-import androidx.datastore.preferences.preferencesDataStore
 import com.example.quizler.BuildConfig
-import com.example.quizler.domain.data.local.LocalRepository
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.service.player.PlayerService
 import com.example.quizler.domain.data.remote.service.quiz_mode.QuizModeService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,9 +14,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
-
-    private val Context.authDataStore by preferencesDataStore(name = "auth_data_store")
+object RepositoryRemoteModule {
 
     @Singleton
     @Provides
@@ -33,10 +27,6 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideLocalRepository(@ApplicationContext context: Context) = LocalRepository(context.authDataStore)
-
-    @Singleton
-    @Provides
     fun provideRemoteRepository(
         playerService: PlayerService,
         quizModeService: QuizModeService
@@ -44,9 +34,9 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun providePlayerService(retrofit: Retrofit) = retrofit.create(PlayerService::class.java)
+    fun providePlayerService(retrofit: Retrofit): PlayerService = retrofit.create(PlayerService::class.java)
 
     @Singleton
     @Provides
-    fun provideQuizModeService(retrofit: Retrofit) = retrofit.create(QuizModeService::class.java)
+    fun provideQuizModeService(retrofit: Retrofit): QuizModeService = retrofit.create(QuizModeService::class.java)
 }

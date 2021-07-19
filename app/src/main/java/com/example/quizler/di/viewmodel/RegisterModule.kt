@@ -1,7 +1,7 @@
 package com.example.quizler.di.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.example.quizler.domain.data.local.LocalRepository
+import com.example.quizler.domain.data.local.UserDataStore
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.feature.onboarding.AuthFormValidationUseCase
 import com.example.quizler.feature.onboarding.register.RegisterBindingModel
@@ -21,9 +21,9 @@ object RegisterModule {
     @Provides
     fun provideRegisterPlayerUseCase(
         remoteRepo: RemoteRepository,
-        localRepo: LocalRepository,
+        userDataStore: UserDataStore,
         registerOutcomeHandler: RegisterResponseHandler
-    ) = RegisterUseCase(remoteRepo, localRepo, registerOutcomeHandler)
+    ) = RegisterUseCase(remoteRepo, userDataStore, registerOutcomeHandler)
 
     @Provides
     fun provideRegisterPlayerUseCaseMapper() = RegisterPlayerUserCaseMapper()

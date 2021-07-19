@@ -1,6 +1,7 @@
 package com.example.quizler.feature.onboarding.login
 
-import com.example.quizler.domain.data.local.LocalRepository
+import com.example.quizler.domain.data.local.QuizModeRepository
+import com.example.quizler.domain.data.local.UserDataStore
 import com.example.quizler.domain.data.remote.RemoteRepository
 import com.example.quizler.domain.data.remote.request.LoginRequestBody
 import com.example.quizler.util.State
@@ -8,7 +9,7 @@ import javax.inject.Inject
 
 class LoginUseCase
 @Inject constructor(
-    private val localRepository: LocalRepository,
+    private val dataStore: UserDataStore,
     private val remoteRepository: RemoteRepository,
 ) {
 
@@ -16,7 +17,7 @@ class LoginUseCase
         return remoteRepository.login(loginRequestBody).let { response ->
             if (response.isSuccessful) {
                 val body = response.body()
-                localRepository.cachePlayerData(body!!.playerId, body.token)
+                dataStore.cachePlayerData(body!!.playerId, body.token)
 
                 State.Success(true)
             } else {
