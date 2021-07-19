@@ -45,10 +45,10 @@
     <string name="mode_description_exam">...sad smo vec ozbiljniji, a?</string>
     <string name="mode_description_marathon">...okej, ti mora da si streber...</string>
     <string name="mode_title_easy">Lako</string>
-    <string name="mode_title_average">Srednje</string>
+    <string name="mode_title_medium">Srednje</string>
     <string name="mode_title_hard">Tesko</string>
     <string name="mode_description_easy">Bukvalno ne znas nista...</string>
-    <string name="mode_description_average">Zagrevanje mozgica</string>
+    <string name="mode_description_medium">Zagrevanje mozgica</string>
     <string name="mode_description_hard">...okej, ti mora da si streber...</string>
     <string name="mode_title_sport">Sport</string>
     <string name="mode_title_general_knowledge">Opsta Informisanost</string>

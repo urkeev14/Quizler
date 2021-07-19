@@ -16,7 +16,7 @@
 
     <!-- Difficulty mode colors-->
     <color name="colorEasy">#a5d6a7</color>
-    <color name="colorAverage">#ffcc80</color>
+    <color name="colorMedium">#ffcc80</color>
     <color name="colorHard">#e0827e</color>
 
     <!-- Length mode colors-->
